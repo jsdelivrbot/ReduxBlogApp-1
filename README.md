@@ -1,7 +1,6 @@
 # Redux Blog App
 
-## Project Goals
-### March 1, 2017
+## Project Goals - March 1, 2017
 
 1.  Create a blog app that incorporates CRUD operations.
 
@@ -13,7 +12,7 @@
 
 There are two methods for getting started with this repo.
 
-### Familiar with Git?
+***Familiar with Git?***
 
 Clone this repo, install dependencies, then start the node webpack process with the following:
 
@@ -24,8 +23,8 @@ Clone this repo, install dependencies, then start the node webpack process with 
 	> npm start
 ```
 
-### Not Familiar with Git?
-Click [here](https://github.com/jstowers/ReduxBlogApp/archive/master.zip) then download the .zip file.  Extract the contents of the zip file, then open your terminal, change to the project directory, and:
+***Not Familiar with Git?***
+Click [here](https://github.com/jstowers/ReduxBlogApp/archive/master.zip) to download the .zip file.  Extract the contents of the zip file, then open your terminal, change to the project directory, and:
 
 ```
 	> npm install
