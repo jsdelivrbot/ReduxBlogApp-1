@@ -2,11 +2,11 @@
 
 ## Project Goals - March 1, 2017
 
-1.  Create a blog app that incorporates CRUD operations.
+1.  Create a React/Redux blog app that uses all four CRUD operations.
 
 2.  Incorporate multiple pages with different URL's.
 
-3.  Store and access blog posts on a remote server.
+3.  Store and access blog posts on a remote Heroku server.
 
 ## Getting Started
 
