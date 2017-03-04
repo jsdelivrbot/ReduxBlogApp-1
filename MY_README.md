@@ -24,18 +24,22 @@ The key provides a simple authentication and ensures that your posts are kept in
 ***Four Available Routes***
 
 |  Endpoint        |  Method    |  Route             
-| ---------------- |:----------:| ------------------:                         
+| ---------------- |:----------:| :------------------                         
 |  /api/posts      |  GET       |  index => returns an array of blog posts
 |  /api/posts      |  POST      |  create blog post and return saved version
 |  /api/posts/:id  |  GET       |  return a single post based on the id
 |  /api/posts/:id  |  DELETE    |  delete a single post based on the id
 
-NOTE:  a GET request on an individual blog post returns the content of the post; whereas a GET request on the index does not return any content.
+NOTE:
 
-Requests to the API are throttled.  If too many __requests__ are made in a short time, the server will respond with 'Retry later.'
+*   A GET request for all posts returns an array but not any post contents.
+
+*   A GET request for an individual post returns the content of that post.
+
+*   Requests to the API are throttled.  If too many __requests__ are made in a short time, the server will respond with 'Retry later.'
 
 
-***March 1, 2017***
+*March 1, 2017*
 
 ###Installing React Router
 Sec. 6, Lec. 71
