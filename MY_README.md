@@ -15,7 +15,7 @@
 ###Exploring the API
 Sec. 6, Lec. 70
 
-Server API located at [link](reduxblog.herokuapp.com).
+Server API located at [reduxblog.herokuapp.com](reduxblog.herokuapp.com).
 
 All requests require a unique key parameter.  The key provides a simple authentication and ensures that your posts are kept in a separate bucket from other users.
 
