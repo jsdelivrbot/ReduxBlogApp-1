@@ -123,4 +123,73 @@ IndexRoute from React Router
 
     Will display when the path matches the parent ('/'), but not the children.
 
+---
+
+####March 4, 2017
+
+###Create Index Action
+Sec. 6, Lec. 77
+
+Process:
+
+1.  In terminal, install axios and redux-promise as development dependencies:
+
+        $  npm install --save axios redux-promise
+
+        axios makes our network requests
+        redux-promise unwraps the promises and actions
+
+2.  Inside index.js, wire-up redux-promise to our app as a middleware:
+
+        import promise from 'redux-promise';
+
+        // ensures that actions flow through promise middleware before
+        // reaching the reducers
+        const createStoreWithMiddleware = applyMiddleware(
+            promise
+        )(createStore);
+
+3.  Define actions creator in src/actions/index.js.  Purpose is to reach out and grab the blog posts from the API.
+
+4.  Define reducer_posts in src/reducers/reducer_posts.js.  Purpose is to receive and process the payload data from the GET request.
+
+5.  What should our state structure look like?
+
+        Give serious thought to how state for the app should be modeled.
+
+        Should it be an array [], like the cities in the weather forecast?
+
+        Should it be an object {}?
+
+        Can change the structure of state later, but it becomes more difficult.
+
+6.  For our blog app, look at the mockup . . .
+
+        The index page ('/') shows a list of different blog posts.  So we definitely need an array or object to hold these posts.
+
+        When the user requests a specific post, it is the only request that shows the post content.  For this, we need to a separate piece of state to track what the active post is.
+
+        So we'll have two pieces of state:
+        1.  An array with the lists of posts containing the title and category.
+        2.  An object for the active post with the name, categories, and content.
+
+7.  Define initial state as:
+
+        const INITIAL_STATE = { all: [], post: null };
+
+        { }         => state object
+
+        all: []     => property that stores an array of all blog posts
+
+        post: null  => the active blog post
+
+8.  
+
+        
+
+React Router
+
+    The user thinks they are changing pages, but they aren't.  Actually, React Router is only changing the components that are viewed on a single page.
+
+
 
