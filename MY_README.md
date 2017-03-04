@@ -8,16 +8,18 @@
 
 3.  Store and access blog posts on a remote server.
 
+---
+
 ***February 28, 2017***
 
 ###Exploring the API
 Sec. 6, Lec. 70
 
-Server API located at reduxblog.herokuapp.com
+Server API located at [link](reduxblog.herokuapp.com).
 
-All requests require a unique key parameter.  No need to apply for a key, just create one.  
+All requests require a unique key parameter.  The key provides a simple authentication and ensures that your posts are kept in a separate bucket from other users.
 
-The key provides a simple authentication and ensures that your posts are kept in a separate bucket from other users:
+No need to apply for a key, just create one:
     
     reduxblog.herokuapp.com/api/posts?key=1a2b3c
 
@@ -36,10 +38,11 @@ NOTE:
 
 *   A GET request for an individual post returns the content of that post.
 
-*   Requests to the API are throttled.  If too many __requests__ are made in a short time, the server will respond with 'Retry later.'
+*   Requests to the API are throttled.  If too many requests are made in a short time, the server will respond with 'Retry later.'
 
+---
 
-*March 1, 2017*
+***March 1, 2017***
 
 ###Installing React Router
 Sec. 6, Lec. 71
@@ -47,8 +50,6 @@ Sec. 6, Lec. 71
 Will install a specific version of react-router to ensure we're using the same API:
 
     $ npm install --save react-router@2.0.0-rc5
-
-Does not appear that history was installed??
 
 
 ###Setting Up React Router
@@ -84,6 +85,10 @@ Sec. 6, Lec. 73
     3.  memoryHistory
         
             doesn't use the URL for reading the history
+
+---
+
+***March 3, 2017***
 
 
 
