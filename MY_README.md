@@ -4,7 +4,7 @@
 
 1.  Create a blog app that incorporates CRUD operations.
 
-2.  Incorporate multiple pages with different URL's.
+2.  Design multiple pages with different URL's.
 
 3.  Store and access blog posts on a remote server.
 
@@ -15,7 +15,7 @@
 ###Exploring the API
 Sec. 6, Lec. 70
 
-Server API located at [reduxblog.herokuapp.com](reduxblog.herokuapp.com).
+Server API located at [reduxblog.herokuapp.com](http://reduxblog.herokuapp.com).
 
 All requests require a unique key parameter.  The key provides a simple authentication and ensures that your posts are kept in a separate bucket from other users.
 
