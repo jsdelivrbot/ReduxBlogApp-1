@@ -1,4 +1,4 @@
-#Redux Blog App#
+#Redux Blog Application#
 
 ***Project Goals***
 
@@ -19,7 +19,7 @@ Server API located at [reduxblog.herokuapp.com](http://reduxblog.herokuapp.com).
 
 All requests require a unique key parameter.  The key provides a simple authentication and ensures that your posts are kept in a separate bucket from other users.
 
-No need to apply for a key, just create one:
+No need to apply for a key, just create a unique one:
     
     reduxblog.herokuapp.com/api/posts?key=1a2b3c
 
@@ -36,7 +36,7 @@ NOTE:
 
 *   A GET request for all posts returns an array but not any post contents.
 
-*   A GET request for an individual post returns the content of that post.
+*   A GET request for a specified post returns the content of that post.
 
 *   Requests to the API are throttled.  If too many requests are made in a short time, the server will respond with 'Retry later.'
 
@@ -90,6 +90,37 @@ Sec. 6, Lec. 73
 
 ***March 3, 2017***
 
+###Nested Components
+Sec. 6, Lec. 75
 
+The Greeting components below are children of the App component:
+
+    <Route path = "/" component = { App } >
+        <Route path = "greet1" component = { Greeting } />
+        <Route path = "greet2" component = { Greeting } />
+        <Route path = "greet3" component = { Greeting } />
+    </Route>
+
+To render the children, add the following line in the App component's render() method:
+
+     return (
+       <div>
+        { this.props.children }
+       </div>
+
+Conclusion:
+
+1.  React Router maps a given URL to components.
+
+2.  Use nested routes inside other routes to define more complex URLs.
+
+3.  To render a child route, parent must reference `this.props.children` in its render() method.
+
+
+IndexRoute from React Router
+
+    Helper that behaves like a route
+
+    Will display when the path matches the parent ('/'), but not the children.
 
 
