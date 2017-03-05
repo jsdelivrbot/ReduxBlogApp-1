@@ -192,4 +192,67 @@ React Router
     The user thinks they are changing pages, but they aren't.  Actually, React Router is only changing the components that are viewed on a single page.
 
 
+###Fetching Data with Lifecycle Methods
+Sec. 6, Lec. 80
+
+We need to fetch data whenever URL changes.
+
+__Lifecycle Method__
+
+    Function on a React component class that is automatically called by React
+
+    Types:
+    1.  componentWillMount()
+    2.  componentDidMount()
+
+__Process__
+
+1.  Change posts_index.js from a functional component to a class-based component.
+
+2.  Define componentWillMount() method on PostsIndex class:
+
+        componentWillMount() {
+            console.log('Good time to call an action creator to fetch posts');
+        }
+
+3.  Whenever our PostsIndex component is about to mount, React will fetch the  posts data.
+
+__Creating Containers that Call Action Creators__
+
+1.  Import connect:
+
+        `import { connect } from 'react-redux'`
+
+2.  Import action creator:
+    
+        `import { fetchPosts } from '../actions/index';`
+
+3.  Define mapDispatchToProps() function:
+
+    ``` function mapDispatchToProps(dispatch) {
+            return bindActionCreators({ fetchPosts }, dispatch)
+        }
+    ```
+
+4.  Connect to component:
+
+        `export default connect(null, mapDispatchToProps)(PostsIndex);`
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
