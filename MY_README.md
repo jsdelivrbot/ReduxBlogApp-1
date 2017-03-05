@@ -220,24 +220,34 @@ __Process__
 __Creating Containers that Call Action Creators__
 
 1.  Import connect:
-
-        `import { connect } from 'react-redux'`
+    ```
+        import { connect } from 'react-redux'
+    ```
 
 2.  Import action creator:
-    
-        `import { fetchPosts } from '../actions/index';`
+    ```
+        import { fetchPosts } from '../actions/index';`
+    ```
 
 3.  Define mapDispatchToProps() function:
-
-    ``` function mapDispatchToProps(dispatch) {
+    ``` 
+        function mapDispatchToProps(dispatch) {
             return bindActionCreators({ fetchPosts }, dispatch)
         }
     ```
 
 4.  Connect to component:
+    ```
+        export default connect(null, mapDispatchToProps)(PostsIndex);
+    ```
 
-        `export default connect(null, mapDispatchToProps)(PostsIndex);`
+###Creating New Posts
+Sec. 6, Lec. 82
 
+Goal: build a component linked to the route '/posts/new' that allows a user to add a title, categories, and content.
+
+__Process__
+1.  
 
 
 
