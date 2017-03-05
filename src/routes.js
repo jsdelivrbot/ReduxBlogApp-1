@@ -10,25 +10,21 @@ import { Route, IndexRoute } from 'react-router';
 
 import App from './components/app';
 import PostsIndex from './components/posts_index';
+import PostsNew from './components/posts_new';
 
-const Greeting = () => {
-	return <div>Hey There</div>;
-};
 
-//	Syntax: 
-//		whenever the user is at this path, show this component
-// 		<Route path = "/" component = { insertName } />
 export default (
 
 	// '/' refers to the root domain name
-	// google.com/ => renders App
+	// Ex) google.com/ => renders App
 
-	// Greeting nested inside of App.  App needs to render Greeting.
+	//	Syntax: 
+	//	whenever the user is at this path, show this component:
+	// 		<Route path = "/" component = { insertName } />
+
 	<Route path = "/" component = { App } >
 		<IndexRoute component = { PostsIndex } />
-		<Route path = "greet1" component = { Greeting } />
-		<Route path = "greet2" component = { Greeting } />
-		<Route path = "greet3" component = { Greeting } />
+		<Route path = "posts/new" component = { PostsNew } />
 	</Route>
 );
 
@@ -42,6 +38,7 @@ export default (
 	};
 
 	// Nested components
+	// Greeting nested inside of App.  App needs to render Greeting.
 	<Route path = "/" component = { App } >
 		<Route path = "greet1" component = { Greeting } />
 		<Route path = "greet2" component = { Greeting } />

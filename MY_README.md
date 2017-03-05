@@ -244,10 +244,19 @@ __Creating Containers that Call Action Creators__
 ###Creating New Posts
 Sec. 6, Lec. 82
 
-Goal: build a component linked to the route '/posts/new' that allows a user to add a title, categories, and content.
+Goal: build a component with a form input linked to the route '/posts/new' that allows a user to add a title, categories, and content.
 
 __Process__
-1.  
+
+1.      Scaffold component to show form
+    
+2.      Add component to routes file as new URL 'posts/new' that user can navigate.
+    
+3.      Implement button in '/' component to navigate to form component
+
+4.      Add form to component
+
+5.      Create action creator and update reducer.
 
 
 
