@@ -252,20 +252,68 @@ __Process__
     
 2.      Add component to routes file as new URL 'posts/new' that user can navigate.
     
-3.      Implement button in '/' component to navigate to form component
+3.      Implement 'Add Posts' button in '/' component to navigate to form component
 
-4.      Add form to component
+4.      Add form to PostsNew component.
+
+        - Whenever user submits a post, it should call an
+        action creator that makes a request to save the blog post.
 
 5.      Create action creator and update reducer.
 
+####March 16, 2017
+
+###Navigation with the Link Component
+Sec. 6, Lec. 83
+
+Goal:   Complete Step 3
+Build an 'Add Post' button on the '/' component to navigate
+to the 'posts/new' component.
+
+Navigating between different routes with React-Router is straightforward.
+
+React-Router has 'Link' component that links a component from one
+route to a component on another route:
+    
+    // in posts_index.js:
+
+    // import the Link component
+    import { Link } from 'react-router'
+
+The Link component renders just like any other component, and
+when it does, it behaves like an anchor (<a>) tag.
+
+    // inside the render() function
+    <div>
+        <div className="text-xs-right">
+            <Link to="/posts/new" className="btn btn-primary">
+                Add a Post
+            </Link>
+        </div>
+        List of blog posts
+    </div>
+    
 
 
+###Forms and Form Submission
+Sec. 6, Lec. 84
 
+Goal:   Complete Step 4
+Build form for '/posts/new'
 
+Will implement form validation for inputs:
+- text for all fields
+- highlighting input as red
 
+1.  Install 'redux-form' library
+    
+        $ npm install --save redux-form
 
+2.  Hook up redux-form to reducer
 
+    - in /reducers/index.js:
 
+        import { reducer as formReducer } from 'redux-form'
 
 
 

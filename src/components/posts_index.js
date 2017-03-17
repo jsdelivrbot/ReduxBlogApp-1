@@ -4,6 +4,8 @@ import { connect } from 'react-redux';
 // import fetchPosts action creator
 import { fetchPosts } from '../actions/index';
 
+import { Link } from 'react-router';
+
 class PostsIndex extends Component {
 
 	// React will call this component automatically when it is about to be
@@ -18,6 +20,11 @@ class PostsIndex extends Component {
 	render() {
 		return (
 			<div>
+				<div className="text-xs-right">
+					<Link to="/posts/new" className="btn btn-primary">
+						Add a Post
+					</Link>
+				</div>
 				List of blog posts
 			</div>
 		);
