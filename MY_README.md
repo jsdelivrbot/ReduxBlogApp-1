@@ -316,10 +316,45 @@ Will implement form validation for inputs:
         import { reducer as formReducer } from 'redux-form'
 
 
+####Saturday, March 18, 2017
+
+###Passing Control to Redux Form
+Sec. 6, Lec. 86
+
+- With the reduxForm helper function, we created a new form called PostsNewForm with three fields: title, categories, and content
+
+- Similar to how connect() injects props into our component, so does reduxForm()
+
+- reduxForm() injects helpers onto this.props that can then be used inside the PostsNew component
 
 
+###CreatePost Action Creator###
+Sec. 6, Lec. 87
 
+- In components/posts_new.js, the handleSubmit() function needs an action creator before we can call it with the final form properties (title, categories, content).
 
+    ````
+    <form onSubmit={handleSubmit(insert action creator)}>
+    ````
 
+- GOAL: Create an action creator that will receive properties after the completed form is submitted.
 
+    1.  Define action creator createPost() in actions/index.js.  The props passed to the action creator is an object with the properties submitted from the form.
 
+        ````
+        export function createPost(props) {
+            const request = axios.post(ROOT_URL, props);
+            return {
+                type: CREATE_POST,
+                payload: request
+            };
+        }
+        ````
+
+    2.  Define action type constant.
+    
+        ````
+        export const CREATE_POST = "CREATE_POST";
+        ````
+
+    3.

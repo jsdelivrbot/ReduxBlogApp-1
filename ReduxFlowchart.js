@@ -28,4 +28,7 @@ ReactDOM.render(
 			- store => the single Redux store in the app
 
 			- children => ReactElement, the root of your component hierarchy
-			
+
+
+
+Reducers - generate the values of our application state
