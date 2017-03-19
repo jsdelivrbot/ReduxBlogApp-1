@@ -24,11 +24,11 @@ export function fetchPosts() {
 }
 
 // action creator that sends a post from the form
-// to the 
+// to the url
 export function createPost(props) {
 
 	console.log('createPost props =', props);
-	
+
 	const request = axios.post(ROOT_URL, props);
 
 	return {

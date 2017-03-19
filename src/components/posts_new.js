@@ -23,6 +23,11 @@ class PostsNew extends Component {
   	)
   	*/
 
+  	/* Field component - 
+
+
+  	*/
+
 	render() {
 
 		console.log('PostsNew props = ', this.props);
