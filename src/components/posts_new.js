@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-// nearly identical to 'connect' function in redux library
+
+// reduxForm object nearly identical to 
+// 'connect' function in redux library; will use
+// reduxForm to wrap PostsNew component
 import { reduxForm, Field } from 'redux-form';
 import { createPost } from '../actions/index';
 
@@ -30,9 +33,11 @@ class PostsNew extends Component {
 
 	render() {
 
-		console.log('PostsNew props = ', this.props);
+		// const handleSubmit = this.props.handleSubmit
+		// handleSubmit is a helper function from reduxForm
+		// fields is a configuration object
 		const { handleSubmit } = this.props;
-
+		
 		return (
 			<form onSubmit= { handleSubmit(this.props.createPost) }>
 				<h3> Create a New Post </h3>
@@ -77,12 +82,18 @@ class PostsNew extends Component {
 
 // form name => needs to be unique
 // fields => reduxForm will watch for the inputs
-export default connect(null, {createPost})(reduxForm({form: 'PostsNewForm'})(PostsNew));
 
-// when user makes changes a field,
-// redux-form records those changes on application state:
+// reduxForm injects helper function into this.props, inside the component
+export default connect(null, {createPost})(reduxForm({
+	form: 'PostsNewForm'})
+	(PostsNew));
+
+// BEHIND THE SCENES:
+// whenever user makes changes to a field,
+// redux-form records those changes on the global application state:
 /* 
 		state === {
+			// form is the reducer
 			form: {
 				PostsNewForm: {
 					title: '...',
@@ -93,21 +104,6 @@ export default connect(null, {createPost})(reduxForm({form: 'PostsNewForm'})(Pos
 		}
 
 	instead of recording these properties on a component level, 
-	like in the past, redux-form is putting these properties
-	directly onto the application state.
-*/
-
-/*
-
-
-				<div className= "form-group">
-					<label>Categories</label>
-					<input type="text" 
-					       className="form-control"/>
-				</div>
-
-				<div className = "form-group">
-					<label>Content</label>
-					<textarea className="form-control"/>
-				</div>
+	redux-form is putting these properties directly onto the 
+	application state.
 */

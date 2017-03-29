@@ -1,3 +1,4 @@
+// Axios is a Promised-based HTTP client for the browser and node
 import axios from 'axios';
 
 // create unique API key
@@ -23,8 +24,7 @@ export function fetchPosts() {
 	};
 }
 
-// action creator that sends a post from the form
-// to the url
+// action creator that sends a post from the form to the url
 export function createPost(props) {
 
 	console.log('createPost props =', props);
