@@ -7,6 +7,11 @@ import { connect } from 'react-redux';
 import { reduxForm, Field } from 'redux-form';
 import { createPost } from '../actions/index';
 
+import {
+	FormControl,
+	FormGroup
+} from 'react-bootstrap';
+
 // Component users see when they navigate to URL `/posts/new`
 
 class PostsNew extends Component {
@@ -44,10 +49,16 @@ class PostsNew extends Component {
 
 				<div className= "form-group">
 					<label>Title</label>
-					<Field
-						name="title"
-						component="input"
-						type="text" />
+					<div className= "form-group">
+						<Field
+							name="title"
+							component="input" />
+							<FormControl
+								type="text" 
+								placeholder="Enter text"
+							/>
+						/>
+					</div>
 				</div>
 
 				<div className= "form-group">
