@@ -19,6 +19,7 @@ Get CRUDY!  Create, read, update, and delete blog posts.
 -   [React](https://facebook.github.io/react/)
 -   [Redux](http://redux.js.org/)
 -   [Redux Form v.6.6.1](http://redux-form.com/6.6.1/)
+-   [React Router](https://www.npmjs.com/package/react-router)
 -   [React Bootstrap](https://react-bootstrap.github.io/)
 
 ## Build
