@@ -6,19 +6,6 @@ A clean, efficient, and persistent blog application.
 
 Get CRUDY!  Create, read, update, and delete blog posts.
 
-## Tech
-
--   [React](https://facebook.github.io/react/)
--   [Redux](http://redux.js.org/)
--   [Redux Form v 6.6.1](http://redux-form.com/6.6.1/)
--   [React Bootstrap](https://react-bootstrap.github.io/)
-
-## Build
-
--   JavaScript
--   Node
--   Webpack
-
 ## Project Goals
 
 -   Create a React/Redux blog app that uses all four CRUD operations.
@@ -26,6 +13,19 @@ Get CRUDY!  Create, read, update, and delete blog posts.
 -   Incorporate multiple pages with different URL's.
 
 -   Store and access blog posts on a remote Heroku server.
+
+## Tech
+
+-   [React](https://facebook.github.io/react/)
+-   [Redux](http://redux.js.org/)
+-   [Redux Form v.6.6.1](http://redux-form.com/6.6.1/)
+-   [React Bootstrap](https://react-bootstrap.github.io/)
+
+## Build
+
+-   JavaScript
+-   Node
+-   Webpack
 
 ## Getting Started
 
