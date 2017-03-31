@@ -21,11 +21,11 @@ Get CRUDY!  Create, read, update, and delete blog posts.
 
 ## Project Goals
 
-1.   Create a React/Redux blog app that uses all four CRUD operations.
+-   Create a React/Redux blog app that uses all four CRUD operations.
 
-2.   Incorporate multiple pages with different URL's.
+-   Incorporate multiple pages with different URL's.
 
-3.   Store and access blog posts on a remote Heroku server.
+-   Store and access blog posts on a remote Heroku server.
 
 ## Getting Started
 
