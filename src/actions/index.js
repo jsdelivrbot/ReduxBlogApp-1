@@ -24,7 +24,8 @@ export function fetchPosts() {
 	};
 }
 
-// action creator that sends a post from the form to the url
+// action creator function that sends a post from 
+// the form to the url
 export function createPost(props) {
 
 	console.log('createPost props =', props);
