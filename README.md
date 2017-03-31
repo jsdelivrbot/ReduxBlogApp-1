@@ -1,6 +1,16 @@
 # Redux Blog App #
 
-## Project Goals - March 1, 2017
+March 1, 2017
+
+A clean, efficient, and persistent blog application.  Nice.
+
+Get CRUDY!  Create, read, update, and delete blog posts.
+
+Tech:  React, Redux, Redux Form, React Bootstrap
+
+Build:  JavaScript, Node, Webpack
+
+## Project Goals
 
 1.  Create a React/Redux blog app that uses all four CRUD operations.
 
@@ -10,7 +20,7 @@
 
 ## Getting Started
 
-There are two methods for getting started with this repo:
+There are two ways to get started with this repo:
 
 ***1.  Familiar with Git?***
 
@@ -23,7 +33,7 @@ Clone this repo, install dependencies, then start the node webpack process with 
 	> npm start
 ```
 
-***2.  Not Familiar with Git?***
+***2.  Unfamiliar with Git?***
 
 Click [here](https://github.com/jstowers/ReduxBlogApp/archive/master.zip) to download the .zip file.  
 
