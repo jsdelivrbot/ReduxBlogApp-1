@@ -2,21 +2,22 @@
 
 March 1, 2017
 
-A clean, efficient, and persistent blog application.  Nice!
+A clean, efficient, and persistent blog application.  
+
 Get CRUDY!  Create, read, update, and delete blog posts.
 
-##Tech
+## Tech
 
-    React
-    Redux
-    Redux Form
-    React Bootstrap
+-   React
+-   Redux
+-   Redux Form
+-   React Bootstrap
 
-##Build
+## Build
 
-    JavaScript
-    Node
-    Webpack
+-   JavaScript
+-   Node
+-   Webpack
 
 ## Project Goals
 
