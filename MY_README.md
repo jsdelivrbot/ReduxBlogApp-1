@@ -358,3 +358,146 @@ Sec. 6, Lec. 87
         ````
 
     3.
+
+
+
+
+###Abstracting Form State with Redux-Form
+
+Erik Rasmussen - 8/2/2016
+https://www.youtube.com/watch?v=eDTi7lYR1VU
+
+___Recap (26:00)___
+
+1.  HTML forms required all server rendering and processing
+
+2.  jQuery and AJAX helped with form processing in the background, but state was still in the DOM inputs.
+
+3.  Two-way data binding with Angular and Ember provided a hybrid solution bridging the DOM and Javascript
+
+4.  React introuced "controlled inputs" that transferrred control of data from the DOM to JavaScript
+
+React introduced Controlled Inputs
+
+    What is a controlled input?
+
+        An input that will __always__ render with the value it is
+        given as a prop.
+
+        <input type="text" value={username}/>
+
+        So no matter what you try and type into this input, it will
+        always render the username as the value.
+
+    Why is this important?
+
+        It takes control away from the DOM.
+
+        JavaScript controls the data, not the DOM.
+
+        Now only on canonical source of data.
+
+        As the developer, I'm responsible for mutating the form
+        state and re-rendering the input.
+
+        React requires a lot of state and updating boilerplate.
+
+####Redux (17:00)####
+
+___What is Redux?___
+
+    -   All application state kept in a single store {}
+    -   State is read-only
+    -   Update state by dispatching Actions
+    -   Actions are plain JavaScript objects
+            With properties of type and data
+    -   State mutated functionally by Reducers
+            A Reducer is a function that takes the current
+            state, takes the action, and returns the next state
+    -   Subscribers notified of changes only to their specific
+        slice of state
+
+___Why Redux Form?___
+
+1.  Connects form elments to Redux state
+2.  Provides event listeners to the form elements
+3.  Form elements dispatch redux actions
+4.  Redux actions update state
+5.  Which then updates form component
+
+___Simplest Redux Form___
+
+1.  Submit Function
+
+    - doesn't take an event or call preventDefault()
+
+    - just given values, Redux Form doesn't care what you do
+    with these values (AJAX, local storage)
+
+    - submit form can potentially return a promise
+
+2.  Form component (22:00)
+
+    -   does not contain state
+    
+    -   so simple can use React's new stateless function component syntax and
+        fat arrow syntax
+
+    -   just given props and spit out React components
+
+3.  Field
+    
+    -   don't use inputs directly, use special component Field
+
+    -   does all the heavy lifting:
+    
+            connects to Redux store
+
+            injects value, onChange(), on Focus(), etc. props
+            into form component
+
+    -   required properties:
+    
+            name -> name of field
+
+            component -> what to render
+
+    -   component types:
+        a. string - 'input', etc.
+        b. custom component
+
+    -   all other props passed to input and Field doesn't care about
+
+4.  handleSubmit()  (23:20)
+
+    -   give to form onSubmit()
+
+    -   two ways to use:
+    
+        (a) just pass handleSubmit()
+
+            Redux Form will look for an onSubmit() prop that was given to your component by the container
+
+        (b) self-contained submission within form component
+
+            Can provide own submission
+
+    -   responsibilities:
+    
+        (a) ensure validation passes
+
+        (b) maintains submitting state if async
+        
+        (c) receiving back submission errors (on server) and display on form
+
+5.  Decorate Component (25:00)
+
+    -   name given for form will be used as the key in Redux store
+    
+    -   creates a higher-order component, provides it props
+    
+
+    
+
+
+

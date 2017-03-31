@@ -25,7 +25,11 @@ Clone this repo, install dependencies, then start the node webpack process with 
 
 ***2.  Not Familiar with Git?***
 
-Click [here](https://github.com/jstowers/ReduxBlogApp/archive/master.zip) to download the .zip file.  Extract the contents of the zip file, then open your terminal, change to the project directory, and:
+Click [here](https://github.com/jstowers/ReduxBlogApp/archive/master.zip) to download the .zip file.  
+
+Extract the contents of the zip file into a project directory of your choice. 
+
+Open a terminal, change to the project directory, and then install and start the node process:
 
 ```
 	> npm install

@@ -15,33 +15,12 @@ import {
 } from 'react-bootstrap';
 */
 
-// import PostsForm from './posts_form';
-
-// Component users see when they navigate to URL `/posts/new`
-
-/*
-class PostsNew extends Component {
-
-	render() {
-
-		const { handleSubmit } = this.props;
-
-		<form onSubmit= { handleSubmit }>
-			<Field
-				name="title"
-				component="input"
-				type="text"
-			/>
-			<input type="submit" value='Submit' />
-		</form>
-	}
-}
-*/
-
-// Stateless Function
+import PostsForm from './posts_form';
 
 const doSubmit = data => createPost(data);
 
+// Stateless functional component that users see when 
+// they navigate to the URL '/posts/new'
 let PostsNew = props => (
 
 	<form onSubmit = { props.handleSubmit(doSubmit) }>
@@ -49,7 +28,11 @@ let PostsNew = props => (
 			name= "title"
 			component= "input"
 			type= "text"
-			placeholder= "Add title of post"
+			placeholder= "Add a title for your post"
+		/>
+		<Field
+			name= "categories"
+			component= { PostsForm }
 		/>
 		<button type= "submit" > Submit </button>
 	</form>
@@ -59,18 +42,6 @@ let PostsNew = props => (
 PostsNew = reduxForm({ form: 'PostsNewForm' })(PostsNew);
 
 export default PostsNew;
-
-/*
-connect(
-	state => ({
-
-	}),
-	dispatch => ({
-		onSubmit: data => dispatch(createPost(data));
-	})
-)(myReduxForm)
-*/
-
 
 // connect()
 // first argument: mapStateToProps
@@ -84,10 +55,6 @@ connect(
 	form: 'PostsNewForm'})
 	(PostsNew));
 */
-
-
-
-
 
 
 // BEHIND THE SCENES:

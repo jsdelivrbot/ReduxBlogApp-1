@@ -8,42 +8,17 @@ import {
 
 export default class PostsForm extends Component {
 
-	/*
-	constructor(props) {
-		super(props);
-
-		this.state = {
-			title: ''
-		}
-	}
-
-	handleChange = (e) => {
-		this.setState({ title: e.target.value });
-	}
-	*/
-
 	render() {
 
-		const { input: {value, name, onChange }} = this.props;
-		console.log('this.props.input =', this.props.input);
-
 		return (
-			<form>
-				<ControlLabel>Title</ControlLabel>
+			<div>
+				<ControlLabel>Categories</ControlLabel>
 				<FormControl
 					type="text"
-					placeholder="Enter a title for your post"
+					placeholder="Add categories"
 				/>
-			</form>
+			</div>
 		);
 	}
 
 }
-
-/*
-	<ControlLabel>Categories</ControlLabel>
-	<FormControl
-		type="text"
-		placeholder="Enter categories"
-	/>
-*/
