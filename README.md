@@ -2,21 +2,29 @@
 
 March 1, 2017
 
-A clean, efficient, and persistent blog application.  Nice.
-
+A clean, efficient, and persistent blog application.  Nice!
 Get CRUDY!  Create, read, update, and delete blog posts.
 
-Tech:  React, Redux, Redux Form, React Bootstrap
+##Tech
 
-Build:  JavaScript, Node, Webpack
+    React
+    Redux
+    Redux Form
+    React Bootstrap
+
+##Build
+
+    JavaScript
+    Node
+    Webpack
 
 ## Project Goals
 
-1.  Create a React/Redux blog app that uses all four CRUD operations.
+1.   Create a React/Redux blog app that uses all four CRUD operations.
 
-2.  Incorporate multiple pages with different URL's.
+2.   Incorporate multiple pages with different URL's.
 
-3.  Store and access blog posts on a remote Heroku server.
+3.   Store and access blog posts on a remote Heroku server.
 
 ## Getting Started
 
