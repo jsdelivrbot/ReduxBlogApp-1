@@ -6,21 +6,18 @@ import {
 	FormGroup
 } from 'react-bootstrap';
 
-
-export default class PostsForm extends Component {
+// Title Input Box for Posts Form
+export default class PostsFormTitle extends Component {
 
 	render() {
 
-		//console.log('this.props =', this.props);
-		// console.log('this.props.input.value =', this.props.value);
 		const { placeholder, type, input, meta } = this.props;
 
-
 		return (
-			<FormGroup 
+			<FormGroup
 				controlId={input.name}
 				validationState={meta.error ? 'error' : 'success'}>
-				<ControlLabel>Categories</ControlLabel>
+				<ControlLabel className="form-label">Title</ControlLabel>
 				<FormControl
 					type={type}
 					placeholder={placeholder}

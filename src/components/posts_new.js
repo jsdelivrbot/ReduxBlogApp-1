@@ -7,16 +7,12 @@ import { connect } from 'react-redux';
 import { reduxForm, Field } from 'redux-form';
 import { createPost } from '../actions/index';
 
-/*
-import {
-	ControlLabel,
-	FormControl,
-	FormGroup
-} from 'react-bootstrap';
-*/
+// React Form Components
+import PostsFormTitle from './posts_form_title';
+import PostsFormCategories from './posts_form_categories';
+import PostsFormContent from './posts_form_content';
 
-import PostsForm from './posts_form';
-
+// On form submit, action creator createPost called
 const doSubmit = data => createPost(data);
 
 // Stateless functional component that users see when 
@@ -24,24 +20,34 @@ const doSubmit = data => createPost(data);
 let PostsNew = props => (
 
 	<form onSubmit = { props.handleSubmit(doSubmit) }>
-		<div className="form-group">
-			<label>Title</label>
+		<div className = "blog-post-header">
+			<h3>Create a New Blog Post</h3>
+		</div>
+		<div>
 			<Field
 				name= "title"
-				component= "input"
+				component= { PostsFormTitle }
 				type= "text"
-				placeholder= "Add a title for your post"
-			/>
-		</div>
-		<div className="form-group">
-			<Field
-				name= "categories"
-				component= {PostsForm}
-				type= "text"
-				placeholder= "Add categories for your post">Categories
+				placeholder= "Make it groovy">Title
 			</Field>
 		</div>
-		<button type= "submit" > Submit </button>
+		<div>
+			<Field
+				name= "categories"
+				component= { PostsFormCategories }
+				type= "text"
+				placeholder= "Organize for later">Categories
+			</Field>
+		</div>
+		<div>
+			<Field
+				name= "content"
+				component= { PostsFormContent }
+				type= "textarea"
+				placeholder= "Your thoughts matter">Content
+			</Field>
+		</div>
+		<button type= "submit">Submit</button>
 	</form>
 )
 
