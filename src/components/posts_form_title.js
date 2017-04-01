@@ -7,6 +7,31 @@ import {
 } from 'react-bootstrap';
 
 // Title Input Box for Posts Form
+let PostsFormTitle = props => {
+
+	const { placeholder, type, input, meta } = props;
+
+	return (
+		<FormGroup
+			controlId={input.name}
+			validationState={meta.error ? 'error' : 'success'}>
+			<ControlLabel className="form-label">Title</ControlLabel>
+			<FormControl
+				type={type}
+				placeholder={placeholder}
+				value={input.value}
+				onChange={input.onChange}
+			/>
+			<FormControl.Feedback />
+		</FormGroup>
+	);
+}
+
+export default PostsFormTitle;
+
+
+/* ORIGINAL VERSION - Created a React Class Component
+
 export default class PostsFormTitle extends Component {
 
 	render() {
@@ -29,3 +54,4 @@ export default class PostsFormTitle extends Component {
 		);
 	}
 }
+*/
