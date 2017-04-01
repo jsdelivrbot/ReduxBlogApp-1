@@ -12,7 +12,6 @@ import App from './components/app';
 import PostsIndex from './components/posts_index';
 import PostsNew from './components/posts_new';
 
-
 export default (
 
 	// '/' refers to the root domain name

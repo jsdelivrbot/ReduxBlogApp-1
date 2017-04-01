@@ -24,16 +24,23 @@ const doSubmit = data => createPost(data);
 let PostsNew = props => (
 
 	<form onSubmit = { props.handleSubmit(doSubmit) }>
-		<Field
-			name= "title"
-			component= "input"
-			type= "text"
-			placeholder= "Add a title for your post"
-		/>
-		<Field
-			name= "categories"
-			component= { PostsForm }
-		/>
+		<div className="form-group">
+			<label>Title</label>
+			<Field
+				name= "title"
+				component= "input"
+				type= "text"
+				placeholder= "Add a title for your post"
+			/>
+		</div>
+		<div className="form-group">
+			<Field
+				name= "categories"
+				component= {PostsForm}
+				type= "text"
+				placeholder= "Add categories for your post">Categories
+			</Field>
+		</div>
 		<button type= "submit" > Submit </button>
 	</form>
 )
@@ -155,3 +162,13 @@ export default PostsNew;
 	    </div>
   	)
   	*/
+
+/*
+	Tried to link to a custom react component with react bootstrap,
+	but couldn't figure out how to pass the value of the input box
+	back up to the Field component.  Will abandon for later.
+		<Field
+			name= "categories"
+			component= { PostsForm }
+		/>
+*/

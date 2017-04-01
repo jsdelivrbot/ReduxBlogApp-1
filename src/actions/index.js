@@ -7,11 +7,11 @@ const API_KEY = '1a2b3c';
 // URL template:  http://reduxblog.herokuapp.com/api/posts?key=1a2b3c
 const ROOT_URL = `http://reduxblog.herokuapp.com/api/posts?key=${API_KEY}`;
 
-// action type constant
+// action type constants
 export const FETCH_POSTS = "FETCH_POSTS";
 export const CREATE_POST = "CREATE_POST";
 
-// action creator function that returns an object
+// action creator function that returns an object with all posts
 export function fetchPosts() {
 
 	const url = ROOT_URL;
@@ -24,8 +24,7 @@ export function fetchPosts() {
 	};
 }
 
-// action creator function that sends a post from 
-// the form to the url
+// action creator function that sends a post from the form to the url
 export function createPost(props) {
 
 	console.log('createPost props =', props);

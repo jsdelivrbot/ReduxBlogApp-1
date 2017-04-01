@@ -6,19 +6,29 @@ import {
 	FormGroup
 } from 'react-bootstrap';
 
+
 export default class PostsForm extends Component {
 
 	render() {
 
+		//console.log('this.props =', this.props);
+		// console.log('this.props.input.value =', this.props.value);
+		const { placeholder, type, input, meta } = this.props;
+
+
 		return (
-			<div>
+			<FormGroup 
+				controlId={input.name}
+				validationState={meta.error ? 'error' : 'success'}>
 				<ControlLabel>Categories</ControlLabel>
 				<FormControl
-					type="text"
-					placeholder="Add categories"
+					type={type}
+					placeholder={placeholder}
+					value={input.value}
+					onChange={input.onChange}
 				/>
-			</div>
+				<FormControl.Feedback />
+			</FormGroup>
 		);
 	}
-
 }
