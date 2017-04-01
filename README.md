@@ -34,7 +34,7 @@ There are two ways to get started with this repo:
 
 ***1.  Familiar with Git?***
 
-Clone this repo, install dependencies, then start the node webpack process with the following:
+Clone this repo, install dependencies, then start the node webpack process with the following commands:
 
 ```
 	> git clone https://github.com/jstowers/ReduxBlogApp.git
@@ -49,7 +49,7 @@ Click [here](https://github.com/jstowers/ReduxBlogApp/archive/master.zip) to dow
 
 Extract the contents of the zip file into a project directory of your choice. 
 
-Open a terminal, change to the project directory, and then install and start the node process:
+Open a terminal, change to the project directory, and then install and start the node process with the following commands:
 
 ```
 	> npm install
