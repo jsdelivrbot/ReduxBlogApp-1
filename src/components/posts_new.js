@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
+// import { connect } from 'react-redux';
 
 // reduxForm object nearly identical to 
 // 'connect' function in redux library; 
@@ -63,8 +63,24 @@ let PostsNew = props => (
 	</form>
 )
 
+// Form Validation
+function validate(values) {
+	const errors = {};
+
+	if(!values.title) {
+		errors.title = 'Enter a username';
+	}
+
+	// return an object
+	return errors;
+}
+
+
 // PostsNew component wrapped by redux-form
-PostsNew = reduxForm({ form: 'PostsNewForm' })(PostsNew);
+PostsNew = reduxForm({ 
+	form: 'PostsNewForm',
+	validate
+ })(PostsNew);
 
 export default PostsNew;
 

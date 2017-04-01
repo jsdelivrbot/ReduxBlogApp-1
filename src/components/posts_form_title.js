@@ -9,14 +9,14 @@ import {
 // Title Input Box for Posts Form
 let PostsFormTitle = props => {
 
-	console.log('props =', props);
+	//console.log('title props =', props);
 
 	const { placeholder, className, type, input, meta } = props;
 
 	return (
 		<FormGroup
-			controlId={input.name}
-			validationState={meta.error ? 'error' : 'success'}>
+			controlId= {input.name}
+			validationState= {meta.touched ? "error" : 'success'}>
 			<ControlLabel className="form-label">Title</ControlLabel>
 			<FormControl 
 				className= {className}
@@ -25,7 +25,7 @@ let PostsFormTitle = props => {
 				value={input.value}
 				onChange={input.onChange}
 			/>
-			<FormControl.Feedback />
+			<FormControl.Feedback/>
 		</FormGroup>
 	);
 }
