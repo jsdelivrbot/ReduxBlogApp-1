@@ -21,7 +21,7 @@ const doSubmit = data => createPost(data);
 // they navigate to the URL '/posts/new'
 let PostsNew = props => (
 
-	// handleSubmit is a helper function provided by Redux Form
+	// handleSubmit is a helper function provided by ReduxForm
 	<form onSubmit = { props.handleSubmit(doSubmit) }>
 		<div className = "blog-post-header">
 			<h3>Create a New Blog Post</h3>
@@ -30,6 +30,7 @@ let PostsNew = props => (
 			<Field
 				name= "title"
 				component= { PostsFormTitle }
+				props= {{ className: 'form-control' }}
 				type= "text"
 				placeholder= "Make it groovy">Title
 			</Field>
@@ -38,6 +39,7 @@ let PostsNew = props => (
 			<Field
 				name= "categories"
 				component= { PostsFormCategories }
+				props= {{ className: 'form-control' }}
 				type= "text"
 				placeholder= "Organize for later">Categories
 			</Field>
@@ -46,11 +48,18 @@ let PostsNew = props => (
 			<Field
 				name= "content"
 				component= { PostsFormContent }
+				props= {{ className: 'form-control' }}
 				type= "textarea"
 				placeholder= "Your thoughts matter">Content
 			</Field>
 		</div>
-		<button type= "submit">Submit</button>
+		<div className="col-sm-2">
+			<input
+				type="submit"
+				className="btn btn-primary"
+			/>
+		</div>
+		
 	</form>
 )
 

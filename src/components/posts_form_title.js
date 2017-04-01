@@ -9,14 +9,17 @@ import {
 // Title Input Box for Posts Form
 let PostsFormTitle = props => {
 
-	const { placeholder, type, input, meta } = props;
+	console.log('props =', props);
+
+	const { placeholder, className, type, input, meta } = props;
 
 	return (
 		<FormGroup
 			controlId={input.name}
 			validationState={meta.error ? 'error' : 'success'}>
 			<ControlLabel className="form-label">Title</ControlLabel>
-			<FormControl
+			<FormControl 
+				className= {className}
 				type={type}
 				placeholder={placeholder}
 				value={input.value}
