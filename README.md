@@ -43,6 +43,15 @@ Clone this repo, install dependencies, and then start the node webpack process:
 	> npm start
 ```
 
+Open a new browser window and enter the following local address:
+    
+```
+    http://localhost:8080
+```
+
+Blog away!
+
+
 ***2.  Unfamiliar with Git?***
 
 Click [here](https://github.com/jstowers/ReduxBlogApp/archive/master.zip) to download the .zip file.  
@@ -55,3 +64,11 @@ Open a terminal, change to the project directory, and then install and start the
 	> npm install
 	> npm start
 ```
+
+Open a new browser window and enter the following local address:
+    
+```
+    http://localhost:8080
+```
+
+Blog away!
