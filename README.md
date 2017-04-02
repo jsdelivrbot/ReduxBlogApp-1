@@ -28,7 +28,7 @@ Get CRUDY!  Create, read, update, and delete blog posts.
 -   Node
 -   Webpack
 
-## Getting Started
+## Getting Started with this Repo
 
 There are two ways to get started with this repo:
 
@@ -38,7 +38,7 @@ Clone this repo, install dependencies, and then start the node webpack process:
 
 ```
 	> git clone https://github.com/jstowers/ReduxBlogApp.git
-	> cd ReduxSimpleStarter
+	> cd ReduxBlogApp
 	> npm install
 	> npm start
 ```
