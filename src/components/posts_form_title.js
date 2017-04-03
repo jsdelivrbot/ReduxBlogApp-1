@@ -13,10 +13,14 @@ let PostsFormTitle = props => {
 
 	const { placeholder, className, type, input, meta } = props;
 
+	console.log('title props =', props);
+
+	// 
+
 	return (
 		<FormGroup
 			controlId= {input.name}
-			validationState= {meta.touched ? "error" : 'success'}>
+			validationState= {meta.touched ? 'error' : 'success'}>
 			<ControlLabel className="form-label">Title</ControlLabel>
 			<FormControl 
 				className= {className}
@@ -25,10 +29,16 @@ let PostsFormTitle = props => {
 				value={input.value}
 				onChange={input.onChange}
 			/>
-			<FormControl.Feedback/>
+			<FormControl.Feedback />
 		</FormGroup>
 	);
 }
+
+/*
+	<div className = 'text-help'>
+				{meta.touched ? meta.error : ''}
+	</div>
+*/
 
 export default PostsFormTitle;
 

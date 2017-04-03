@@ -70,6 +70,12 @@ function validate(values) {
 	if(!values.title) {
 		errors.title = 'Enter a username';
 	}
+	if(!values.categories) {
+		errors.categories = 'Enter categories';
+	}
+	if(!values.content) {
+		errors.content = 'Enter your content';
+	}
 
 	// return an object
 	return errors;
