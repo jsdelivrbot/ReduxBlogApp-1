@@ -7,7 +7,6 @@ import {
 	FormGroup
 } from 'react-bootstrap';
 
-
 // reduxForm object nearly identical to 
 // 'connect' function in redux library; 
 // will use reduxForm to wrap PostsNew component
@@ -21,16 +20,12 @@ import PostsFormTitle from './posts_form_title';
 import PostsFormCategories from './posts_form_categories';
 import PostsFormContent from './posts_form_content';
 
-// On form submit, action creator createPost called
+// On form submit, call createPost action creator
 const doSubmit = data => createPost(data);
 
+// Render each field
 const renderField = ({ type, input, meta: { touched, error }, 
-						placeholder }) => {
-	
-	console.log('input = ', input);
-	console.log('placeholder =', placeholder);
-	console.log('type =', type);
-
+						placeholder, componentClass }) => {
 	return(
 		<div>
 			<FormGroup
@@ -40,16 +35,15 @@ const renderField = ({ type, input, meta: { touched, error },
 				<FormControl 
 					className= {input.name}
 					type= {type}
+					componentClass= {componentClass}
 					placeholder= {placeholder}
 					value= {input.value}
-					onChange={input.onChange}
+					onChange= {input.onChange}
 				/>
 			</FormGroup>
 		</div>
 	)
 }
-
-
 
 
 // Stateless functional component that users see when 
@@ -64,22 +58,20 @@ let PostsNew = props => (
 		<Field
 			name= "Title"
 			component= { renderField }
-			props= {{ className: 'form-control' }}
 			type= "text"
 			placeholder= "Make it groovy">
 		</Field>
 		<Field
 			name= "Categories"
 			component= { renderField }
-			props= {{ className: 'form-control' }}
 			type= "text"
 			placeholder= "Organize for later">
 		</Field>
 		<Field
 			name= "Content"
 			component= { renderField }
-			props= {{ className: 'form-control' }}
 			type= "textarea"
+			props= {{ componentClass: 'textarea'}}
 			placeholder= "Your thoughts matter">
 		</Field>
 		<div className="col-sm-2">
@@ -88,7 +80,6 @@ let PostsNew = props => (
 				className="btn btn-primary"
 			/>
 		</div>
-		
 	</form>
 )
 
