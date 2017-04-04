@@ -495,7 +495,11 @@ ___Simplest Redux Form___
     -   name given for form will be used as the key in Redux store
     
     -   creates a higher-order component, provides it props
-    
+
+
+####Routing a Blog Post####
+
+We 
 
     
 

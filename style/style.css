@@ -10,3 +10,10 @@
 .form-field-error {
 	color: red;
 }
+
+
+.form-buttons {
+	padding: 5px;
+	margin: 2px;
+}
+

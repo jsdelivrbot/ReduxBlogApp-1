@@ -15,6 +15,9 @@ import { reduxForm, Field } from 'redux-form';
 // action creator
 import { createPost } from '../actions/index';
 
+// link cancel button back to posts
+import { Link } from 'react-router';
+
 // On form submit, call createPost action creator
 const doSubmit = values => createPost(values);
 
@@ -76,11 +79,17 @@ let PostsNew = props => (
 			props= {{ componentClass: 'textarea', label:'Content' }}
 			placeholder= "Your thoughts matter">
 		</Field>
-		<div className="col-sm-2">
+		<div className="col-sm-2 form-buttons">
 			<input
 				type="submit"
 				className="btn btn-primary"
 			/>
+		</div>
+		<div className="col-sm-2 form-buttons">
+			<Link 
+				to= "/"
+				className="btn btn-danger">Cancel
+			</Link>
 		</div>
 	</form>
 )
