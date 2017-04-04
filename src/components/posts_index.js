@@ -15,7 +15,6 @@ class PostsIndex extends Component {
 
 		// console.log('Great place to call an action creator to fetch posts');
 		this.props.fetchPosts();
-
 	}
 
 	render() {

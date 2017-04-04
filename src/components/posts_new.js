@@ -15,23 +15,18 @@ import { reduxForm, Field } from 'redux-form';
 // action creator
 import { createPost } from '../actions/index';
 
-// React Components
-import PostsFormTitle from './posts_form_title';
-import PostsFormCategories from './posts_form_categories';
-import PostsFormContent from './posts_form_content';
-
 // On form submit, call createPost action creator
-const doSubmit = data => createPost(data);
+const doSubmit = values => createPost(values);
 
 // Render each field
 const renderField = ({ type, input, meta: { touched, error }, 
-						placeholder, componentClass }) => {
+						placeholder, componentClass, label }) => {
 	return(
 		<div>
 			<FormGroup
 				controlId= {input.name}
 				validationState= {touched ? 'error' : 'success'}>
-				<ControlLabel className="form-label">{input.name}</ControlLabel>
+				<ControlLabel className="form-label">{label}</ControlLabel>
 				<FormControl 
 					className= {input.name}
 					type= {type}
@@ -40,11 +35,16 @@ const renderField = ({ type, input, meta: { touched, error },
 					value= {input.value}
 					onChange= {input.onChange}
 				/>
+				<div className="form-field-error">
+					{error && touched && <span>{error}</span>}
+				</div>
+				<FormControl.Feedback />
 			</FormGroup>
 		</div>
 	)
 }
 
+// 	validationState= {touched ? 'error' : 'success'}>
 
 // Stateless functional component that users see when 
 // they navigate to the URL '/posts/new'
@@ -56,22 +56,24 @@ let PostsNew = props => (
 			<h3>Create a New Blog Post</h3>
 		</div>
 		<Field
-			name= "Title"
+			name= "title"
 			component= { renderField }
 			type= "text"
+			props= {{ label:'Title' }}
 			placeholder= "Make it groovy">
 		</Field>
 		<Field
-			name= "Categories"
+			name= "categories"
 			component= { renderField }
 			type= "text"
+			props= {{ label:'Categories' }}
 			placeholder= "Organize for later">
 		</Field>
 		<Field
-			name= "Content"
+			name= "content"
 			component= { renderField }
 			type= "textarea"
-			props= {{ componentClass: 'textarea'}}
+			props= {{ componentClass: 'textarea', label:'Content' }}
 			placeholder= "Your thoughts matter">
 		</Field>
 		<div className="col-sm-2">
@@ -84,17 +86,18 @@ let PostsNew = props => (
 )
 
 // Form Validation
-function validate(values) {
+const validate = values => {
+
 	const errors = {};
 
 	if(!values.title) {
-		errors.title = 'Enter a username';
+		errors.title = 'Enter a groovy blog title.';
 	}
 	if(!values.categories) {
-		errors.categories = 'Enter categories';
+		errors.categories = 'Enter some categories.';
 	}
 	if(!values.content) {
-		errors.content = 'Enter your content';
+		errors.content = 'No content, no submit.';
 	}
 
 	// return an object
