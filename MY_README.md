@@ -499,13 +499,11 @@ ___Simplest Redux Form___
 
 ## Tuesday, April 4, 2017
 
-### Navigating on Submit
+### Navigating on Blog Post Submit
 
 Sec. 6, Lec. 90
 
-___Goal___
-
-Add navigation (some kind of feedback) after the user
+___Goal:___  Add some kind of feedback, like navigation, after the user
 submits a blog post.
 
 +    After clicking submit _and_ post successfully created, we should navigate the user back to list of posts (index).
@@ -514,9 +512,9 @@ submits a blog post.
 
 +    Challenge is getting access to the 'push' method.
 
-___What is Context?___
+___What is 'context'?___
 
-+   Getting access to the router is accomplished through a component property called 'context'.
++   Accessing the router is accomplished through a component property called 'context'.
 
 +   'Context' is a lot like props.  It is information passed from a parent component to a child component.
 
@@ -528,7 +526,7 @@ ___Process___
 
 1.    In posts_new.js, define an object contextTypes on the PostsNew class:
 
-    ```javascript
+    ```
     static contextTypes = {
         router: PropTypes.object
     }
