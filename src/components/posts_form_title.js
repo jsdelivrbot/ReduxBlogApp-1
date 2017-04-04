@@ -29,12 +29,12 @@ let PostsFormTitle = props => {
 				value={input.value}
 				onChange={input.onChange}
 			/>
-			<FormControl.Feedback />
 		</FormGroup>
 	);
 }
 
 /*
+	<FormControl.Feedback />
 	<div className = 'text-help'>
 				{meta.touched ? meta.error : ''}
 	</div>

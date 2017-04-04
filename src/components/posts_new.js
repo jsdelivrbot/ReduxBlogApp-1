@@ -1,6 +1,13 @@
 import React, { Component } from 'react';
 // import { connect } from 'react-redux';
 
+import {
+	ControlLabel,
+	FormControl,
+	FormGroup
+} from 'react-bootstrap';
+
+
 // reduxForm object nearly identical to 
 // 'connect' function in redux library; 
 // will use reduxForm to wrap PostsNew component
@@ -17,6 +24,34 @@ import PostsFormContent from './posts_form_content';
 // On form submit, action creator createPost called
 const doSubmit = data => createPost(data);
 
+const renderField = ({ type, input, meta: { touched, error }, 
+						placeholder }) => {
+	
+	console.log('input = ', input);
+	console.log('placeholder =', placeholder);
+	console.log('type =', type);
+
+	return(
+		<div>
+			<FormGroup
+				controlId= {input.name}
+				validationState= {touched ? 'error' : 'success'}>
+				<ControlLabel className="form-label">{input.name}</ControlLabel>
+				<FormControl 
+					className= {input.name}
+					type= {type}
+					placeholder= {placeholder}
+					value= {input.value}
+					onChange={input.onChange}
+				/>
+			</FormGroup>
+		</div>
+	)
+}
+
+
+
+
 // Stateless functional component that users see when 
 // they navigate to the URL '/posts/new'
 let PostsNew = props => (
@@ -26,33 +61,27 @@ let PostsNew = props => (
 		<div className = "blog-post-header">
 			<h3>Create a New Blog Post</h3>
 		</div>
-		<div>
-			<Field
-				name= "title"
-				component= { PostsFormTitle }
-				props= {{ className: 'form-control' }}
-				type= "text"
-				placeholder= "Make it groovy">Title
-			</Field>
-		</div>
-		<div>
-			<Field
-				name= "categories"
-				component= { PostsFormCategories }
-				props= {{ className: 'form-control' }}
-				type= "text"
-				placeholder= "Organize for later">Categories
-			</Field>
-		</div>
-		<div>
-			<Field
-				name= "content"
-				component= { PostsFormContent }
-				props= {{ className: 'form-control' }}
-				type= "textarea"
-				placeholder= "Your thoughts matter">Content
-			</Field>
-		</div>
+		<Field
+			name= "Title"
+			component= { renderField }
+			props= {{ className: 'form-control' }}
+			type= "text"
+			placeholder= "Make it groovy">
+		</Field>
+		<Field
+			name= "Categories"
+			component= { renderField }
+			props= {{ className: 'form-control' }}
+			type= "text"
+			placeholder= "Organize for later">
+		</Field>
+		<Field
+			name= "Content"
+			component= { renderField }
+			props= {{ className: 'form-control' }}
+			type= "textarea"
+			placeholder= "Your thoughts matter">
+		</Field>
 		<div className="col-sm-2">
 			<input
 				type="submit"
