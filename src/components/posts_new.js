@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 // import { connect } from 'react-redux';
 
 import {
@@ -18,8 +18,7 @@ import { createPost } from '../actions/index';
 // link Cancel button back to posts ('/')
 import { Link } from 'react-router';
 
-// On form submit, call createPost action creator
-const doSubmit = values => createPost(values);
+
 
 // Render each field
 const renderField = ({ type, input, meta: { touched, error }, 
@@ -44,18 +43,36 @@ const renderField = ({ type, input, meta: { touched, error },
 				<FormControl.Feedback />
 			</FormGroup>
 		</div>
-	)
+	);
 }
 
+
+
+
+// On form submit, call createPost action creator
+// const doSubmit = values => createPost(values);
 
 // Component the users see when they navigate 
 // to create a new blog post.
 class PostsNew extends Component {
 
+	// PostsNew.contextTypes returns object below
+	static contextTypes = {
+		router: PropTypes.object
+	};
+
+	onSubmit = props => {
+		createPost(props);
+		this.context.router.push('/');
+	}
+
 	render() {
+
+		const { handleSubmit } = this.props;
+
 		return (
 			// handleSubmit is a helper function provided by ReduxForm
-			<form onSubmit = { this.props.handleSubmit(doSubmit) }>
+			<form onSubmit = { handleSubmit(this.onSubmit) }>
 				<div className = "blog-post-header">
 					<h3>Create a New Blog Post</h3>
 				</div>
@@ -160,17 +177,4 @@ export default PostsNew;
 	application state.
 */
 
-/*
-	// Define stateless component to render input and errors
-
-	// Defined outside of render() method, otherwise it will be 
-	// recreated on every re-render, leading to slower performance.
-	const renderField = (field) => (
-	    <div className="input-row">
-	      <input {...field.input} type="text"/>
-	      {field.meta.touched && field.meta.error && 
-	       <span className="error">{field.meta.error}</span>}
-	    </div>
-  	)
-*/
 

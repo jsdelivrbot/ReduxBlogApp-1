@@ -533,6 +533,13 @@ ___Process___
 
 2.    React interprets the contextTypes object whenever an instance of the PostsNew class is created.
 
+3.    React will search all of PostsNew's parent components until it finds a piece of context called 'router'.
+
+    +    Will go back to index.js and find the <Router> component in the ReactDOM.render method.
+
+    +    `<Router>` provides the context
+
+4.    
 
     
 
