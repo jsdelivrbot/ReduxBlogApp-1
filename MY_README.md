@@ -497,12 +497,14 @@ ___Simplest Redux Form___
     -   creates a higher-order component, provides it props
 
 
-##Tuesday, April 4, 2017
+## Tuesday, April 4, 2017
 
-###Navigating on Submit
+### Navigating on Submit
+
 Sec. 6, Lec. 90
 
 ___Goal___
+
 Add navigation (some kind of feedback) after the user
 submits a blog post.
 
