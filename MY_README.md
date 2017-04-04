@@ -527,9 +527,9 @@ ___Process___
 1.    In posts_new.js, define an object contextTypes on the PostsNew class:
 
 ```
-static contextTypes = {
-    router: PropTypes.object
-}
+        static contextTypes = {
+            router: PropTypes.object
+        }
 ```
 
 2.    React interprets the contextTypes object whenever an instance of the PostsNew class is created.
