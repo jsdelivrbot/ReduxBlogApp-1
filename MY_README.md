@@ -497,9 +497,43 @@ ___Simplest Redux Form___
     -   creates a higher-order component, provides it props
 
 
-####Routing a Blog Post####
+##Tuesday, April 4, 2017
 
-We 
+###Navigating on Submit
+Sec. 6, Lec. 90
+
+___Goal___
+Add navigation (some kind of feedback) after the user
+submits a blog post.
+
++    After clicking submit _and_ post successfully created, we should navigate the user back to list of posts (index).
+
++    Use react-router helper method called 'push'.  This method will automatically route the user to the updated path.
+
++    Challenge is getting access to the 'push' method.
+
+___What is Context?___
+
++   Getting access to the router is accomplished through a component property called 'context'.
+
++   'Context' is a lot like props.  It is information passed from a parent component to a child component.
+
++   Don't have to deliberately pass 'context' from parent to child.  Child can just access this data.
+
++   Avoid using 'context' as much as possible!  The API is still in flux.
+
+___Process___
+
+1.    In posts_new.js, define an object contextTypes on the PostsNew class:
+
+    ```javascript
+    static contextTypes = {
+        router: PropTypes.object
+    }
+    ```
+
+2.    React interprets the contextTypes object whenever an instance of the PostsNew class is created.
+
 
     
 

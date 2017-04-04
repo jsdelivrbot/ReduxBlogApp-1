@@ -15,7 +15,7 @@ import { reduxForm, Field } from 'redux-form';
 // action creator
 import { createPost } from '../actions/index';
 
-// link cancel button back to posts
+// link Cancel button back to posts ('/')
 import { Link } from 'react-router';
 
 // On form submit, call createPost action creator
@@ -47,54 +47,57 @@ const renderField = ({ type, input, meta: { touched, error },
 	)
 }
 
-// 	validationState= {touched ? 'error' : 'success'}>
 
-// Stateless functional component that users see when 
-// they navigate to the URL '/posts/new'
-let PostsNew = props => (
+// Component the users see when they navigate 
+// to create a new blog post.
+class PostsNew extends Component {
 
-	// handleSubmit is a helper function provided by ReduxForm
-	<form onSubmit = { props.handleSubmit(doSubmit) }>
-		<div className = "blog-post-header">
-			<h3>Create a New Blog Post</h3>
-		</div>
-		<Field
-			name= "title"
-			component= { renderField }
-			type= "text"
-			props= {{ label:'Title' }}
-			placeholder= "Make it groovy">
-		</Field>
-		<Field
-			name= "categories"
-			component= { renderField }
-			type= "text"
-			props= {{ label:'Categories' }}
-			placeholder= "Organize for later">
-		</Field>
-		<Field
-			name= "content"
-			component= { renderField }
-			type= "textarea"
-			props= {{ componentClass: 'textarea', label:'Content' }}
-			placeholder= "Your thoughts matter">
-		</Field>
-		<div className="col-sm-2 form-buttons">
-			<input
-				type="submit"
-				className="btn btn-primary"
-			/>
-		</div>
-		<div className="col-sm-2 form-buttons">
-			<Link 
-				to= "/"
-				className="btn btn-danger">Cancel
-			</Link>
-		</div>
-	</form>
-)
+	render() {
+		return (
+			// handleSubmit is a helper function provided by ReduxForm
+			<form onSubmit = { this.props.handleSubmit(doSubmit) }>
+				<div className = "blog-post-header">
+					<h3>Create a New Blog Post</h3>
+				</div>
+				<Field
+					name= "title"
+					component= { renderField }
+					type= "text"
+					props= {{ label:'Title' }}
+					placeholder= "Make it groovy">
+				</Field>
+				<Field
+					name= "categories"
+					component= { renderField }
+					type= "text"
+					props= {{ label:'Categories' }}
+					placeholder= "Organize for later">
+				</Field>
+				<Field
+					name= "content"
+					component= { renderField }
+					type= "textarea"
+					props= {{ componentClass: 'textarea', label:'Content' }}
+					placeholder= "Your thoughts matter">
+				</Field>
+				<div className="col-sm-2 form-buttons">
+					<input
+						type="submit"
+						className="btn btn-primary"
+					/>
+				</div>
+				<div className="col-sm-2 form-buttons">
+					<Link 
+						to= "/"
+						className="btn btn-danger">Cancel
+					</Link>
+				</div>
+			</form>
+		);
+	}
+}
 
-// Form Validation
+// Form validation
 const validate = values => {
 
 	const errors = {};
