@@ -419,7 +419,7 @@ ___What is Redux?___
 
 ___Why Redux Form?___
 
-1.  Connects form elments to Redux state
+1.  Connects form elements to Redux state
 2.  Provides event listeners to the form elements
 3.  Form elements dispatch redux actions
 4.  Redux actions update state
@@ -453,8 +453,7 @@ ___Simplest Redux Form___
     
             connects to Redux store
 
-            injects value, onChange(), on Focus(), etc. props
-            into form component
+            injects props like value, onChange(), and onFocus() into the form component
 
     -   required properties:
     
