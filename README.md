@@ -46,7 +46,7 @@ Clone this repo, install dependencies, and then start the node webpack process:
 Open a new browser window and enter the following local address:
     
 ```
-    http://localhost:8080
+        http://localhost:8080
 ```
 
 Blog away!
@@ -62,13 +62,13 @@ Open a terminal, change to the project directory, and then install and start the
 
 ```
 	> npm install
-	> npm start
+	> npm start 
 ```
 
 Open a new browser window and enter the following local address:
     
 ```
-    http://localhost:8080
+        http://localhost:8080
 ```
 
 Blog away!
