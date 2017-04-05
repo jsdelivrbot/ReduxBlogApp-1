@@ -1,9 +1,15 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router';
 import { fetchPost, deletePost } from '../actions/index';
 
 class PostsShow extends Component {
+
+	// PostsShow.contextTypes returns object below
+	// Gives us access to router
+	static contextTypes = {
+		router: PropTypes.object
+	};
 
 	// Lifecycle Method
 	// When component is just about to render,
@@ -13,7 +19,8 @@ class PostsShow extends Component {
 	}
 
 	onDeleteClick = () => {
-		this.props.deletePost(this.props.params.id);
+		this.props.deletePost(this.props.params.id)
+		  .then(() => { this.context.router.push('/') });
 	}
 
 	render() {

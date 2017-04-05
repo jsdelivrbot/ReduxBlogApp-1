@@ -1,5 +1,5 @@
 import React, { Component, PropTypes } from 'react';
-// import { connect } from 'react-redux';
+import { connect } from 'react-redux';
 
 import {
 	ControlLabel,
@@ -7,8 +7,7 @@ import {
 	FormGroup
 } from 'react-bootstrap';
 
-// reduxForm object nearly identical to 
-// 'connect' function in redux library; 
+// reduxForm object nearly identical to 'connect' function in redux library; 
 // will use reduxForm to wrap PostsNew component
 import { reduxForm, Field } from 'redux-form';
 
@@ -18,9 +17,7 @@ import { createPost } from '../actions/index';
 // link Cancel button back to posts ('/')
 import { Link } from 'react-router';
 
-
-
-// Render each field
+// function to render each field
 const renderField = ({ type, input, meta: { touched, error }, 
 						placeholder, componentClass, label }) => {
 	return(
@@ -46,9 +43,6 @@ const renderField = ({ type, input, meta: { touched, error },
 	);
 }
 
-
-
-
 // On form submit, call createPost action creator
 // const doSubmit = values => createPost(values);
 
@@ -61,17 +55,17 @@ class PostsNew extends Component {
 		router: PropTypes.object
 	};
 
-	onSubmit = props => {
-		createPost(props);
-		this.context.router.push('/');
+	onSubmit = (props) => {
+		this.props.createPost(props)
+		  .then(() => { this.context.router.push('/') });
 	}
 
 	render() {
 
+		// handleSubmit is a helper function provided by ReduxForm
 		const { handleSubmit } = this.props;
 
 		return (
-			// handleSubmit is a helper function provided by ReduxForm
 			<form onSubmit = { handleSubmit(this.onSubmit) }>
 				<div className = "blog-post-header">
 					<h3>Create a New Blog Post</h3>
@@ -140,7 +134,8 @@ PostsNew = reduxForm({
 	validate
  })(PostsNew);
 
-export default PostsNew;
+// PostsNew component then wrapped by redux 'connect'
+export default connect(null, { createPost })(PostsNew);
 
 // connect()
 // first argument: mapStateToProps

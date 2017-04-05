@@ -603,5 +603,23 @@ Sec. 6, Lec. 95
 ___Goal:___  Create an action creator to delete posts.
 
 
+### ReactRouter and ReduxForm WrapUp
 
+Sec. 6, Lec. 97
+
+___Wrapup___
+
+-   React Router
+    +    Determines what components to render on screen at any given time.
+    +    Uses index URL ('/') and references other routes from there.
+    
+        ```
+        <Route path = "/" component = { App } >
+            <IndexRoute component = { PostsIndex } />
+            <Route path = "posts/new" component = { PostsNew } />
+            <Route path = "posts/:id" component = { PostsShow } />
+        </Route>
+        ```
+    
+    +    `<IndexRoute />` always returns to the index page
 
