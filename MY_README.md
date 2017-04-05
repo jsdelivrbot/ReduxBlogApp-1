@@ -542,16 +542,16 @@ ___Process___
 
 3.    React will search all of PostsNew's parent components until it finds a piece of context called 'router'.
 
-    +    Will go back to index.js and find the <Router> component in the ReactDOM.render method.
+    -    Will go back to index.js and find the <Router> component in the ReactDOM.render method.
 
-    +    `<Router>` provides the context
+    -    `<Router>` provides the context
 
 
 ### Mapping Posts in Index
 
 Sec. 6, Lec. 91
 
-___Goal:___ Map state to props in posts_index.js and render all blog posts.
+___Goal:___    Map state to props in posts_index.js and render all blog posts.
 
 ___Process___
 
