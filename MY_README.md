@@ -403,17 +403,17 @@ ___Recap (26:00)___
 
     -   It takes control away from the DOM.  JavaScript controls the data, not the DOM.
 
-    -   Now only on canonical source of data.
+    -   Now only one canonical source of data.
 
-    -   Developer now responsible for mutating the form state and re-rendering the input.
+    -   Developer is responsible for mutating the form state and re-rendering the input.
 
     -   React requires a lot of state and updating boilerplate.  So Redux provides a more efficient solution.
 
-### Redux (17:00)
+#### Redux (17:00)
 
 ___What is Redux?___
 
-+   All application state kept in a single store {}
++   All application state kept in a single store { }
 +   State is read-only
 +   Update state by dispatching Actions
 +   Actions are plain JavaScript objects with properties of type and data
@@ -423,15 +423,15 @@ ___What is Redux?___
 
 ___Why Redux Form?___
 
-1.  Connects form elements to Redux state
-2.  Provides event listeners to the form elements
-3.  Form elements dispatch redux actions
-4.  Redux actions update state
-5.  Which then updates form component
++   Connects form elements to Redux state
++   Provides event listeners to the form elements
++   Form elements dispatch redux actions
++   Redux actions update state
++   Which then updates form component
 
 ___Simplest Redux Form___
 
-1.  Submit Function
+1.  __Submit Function__
 
     - doesn't take an event or call preventDefault()
 
@@ -440,7 +440,7 @@ ___Simplest Redux Form___
 
     - submit form can potentially return a promise
 
-2.  Form component (22:00)
+2.  __Form Component__ (22:00)
 
     -   does not contain state
     
@@ -449,7 +449,7 @@ ___Simplest Redux Form___
 
     -   just given props and spit out React components
 
-3.  Field
+3.  __Field__
     
     -   don't use inputs directly, use special component Field
 
@@ -466,34 +466,36 @@ ___Simplest Redux Form___
             component -> what to render
 
     -   component types:
-        a. string - 'input', etc.
-        b. custom component
 
-    -   all other props passed to input and Field doesn't care about
+            string - 'input', 'text, 'textarea', etc.
+        
+            custom component
 
-4.  handleSubmit()  (23:20)
+    -   Field doesn't care about all the other props passed to input
+
+4.  __handleSubmit()__  (23:20)
 
     -   give to form onSubmit()
 
     -   two ways to use:
     
-        (a) just pass handleSubmit()
+        +   just pass handleSubmit()
 
             Redux Form will look for an onSubmit() prop that was given to your component by the container
 
-        (b) self-contained submission within form component
+        +   self-contained submission within form component
 
             Can provide own submission
 
     -   responsibilities:
     
-        (a) ensure validation passes
+        +   ensure validation passes
 
-        (b) maintains submitting state if async
+        +   maintains submitting state if async
         
-        (c) receiving back submission errors (on server) and display on form
+        +   receiving back submission errors (on server) and display on form
 
-5.  Decorate Component (25:00)
+5.  __Decorate Component__ (25:00)
 
     -   name given for form will be used as the key in Redux store
     
