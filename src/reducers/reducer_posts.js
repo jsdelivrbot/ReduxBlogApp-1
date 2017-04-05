@@ -1,7 +1,7 @@
 // Reducer handles fetchPosts action
 // Saturday, 3/4/2017
 
-import { FETCH_POSTS } from '../actions/index';
+import { FETCH_POSTS, FETCH_POST } from '../actions/index';
 
 // all => an array representing a list of all blog posts
 // post => the active post, default to null
@@ -19,7 +19,11 @@ export default function (state = INITIAL_STATE, action) {
 			// blog posts to current state.
 			return { ...state, all: action.payload.data };
 	
+		case FETCH_POST:
+			return { ...state, post: action.payload.data };
+
 		// for any unknown action, default returns previous state
-		default: return state;
+		default: 
+			return state;
 	}
 }
