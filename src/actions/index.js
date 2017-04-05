@@ -11,6 +11,7 @@ const API_KEY = '?1a2b3c';
 export const FETCH_POSTS = "FETCH_POSTS";
 export const CREATE_POST = "CREATE_POST";
 export const FETCH_POST = "FETCH_POST";
+export const DELETE_POST = "DELETE_POST";
 
 // action creator function that returns an object with all posts
 export function fetchPosts() {
@@ -54,6 +55,19 @@ export function fetchPost(id) {
 	};
 }
 
+// action creator functions that deletes a blog post based on the
+// specified id.
+export function deletePost(id) {
+
+	const url = `${ROOT_URL}/posts/${id}/${API_KEY}`;
+
+	const request = axios.delete(url);
+
+	return {
+		type: DELETE_POST,
+		payload: request
+	};
+}
 
 
 

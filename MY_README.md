@@ -592,6 +592,15 @@ ___Process___
         }
 ```
 
+---
+
+___April 5, 2017___
+
+### Delete Action Creator
+
+Sec. 6, Lec. 95
+
+___Goal:___  Create an action creator to delete posts.
 
 
 

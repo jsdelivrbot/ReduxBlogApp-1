@@ -27,6 +27,7 @@ Get CRUDY!  Create, read, update, and delete blog posts.
 -   JavaScript
 -   Node
 -   Webpack
+-   Heroku
 
 ## Getting Started with this Repo
 
