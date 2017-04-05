@@ -36,18 +36,18 @@ There are two ways to get started with this repo:
 
 Clone this repo, install dependencies, and then start the node webpack process:
 
-```
-	> git clone https://github.com/jstowers/ReduxBlogApp.git
-	> cd ReduxBlogApp
-	> npm install
-	> npm start
-```
+    ```
+    > git clone https://github.com/jstowers/ReduxBlogApp.git
+    > cd ReduxBlogApp
+    > npm install
+    > npm start
+    ```
 
 Open a new browser window and enter the following local address:
     
-```
-        http://localhost:8080
-```
+    ```
+    http://localhost:8080
+    ```
 
 Blog away!
 
@@ -60,15 +60,15 @@ Extract the contents of the zip file into a project directory of your choice.
 
 Open a terminal, change to the project directory, and then install and start the node process:
 
-```
-> npm install
-> npm start 
-```
+    ```
+    > npm install
+    > npm start 
+    ```
 
 Open a new browser window and enter the following local address:
     
-```
-http://localhost:8080
-```
+    ```
+    http://localhost:8080
+    ```
 
 Blog away!
