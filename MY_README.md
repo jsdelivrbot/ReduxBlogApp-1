@@ -1,4 +1,4 @@
-#Redux Blog Application#
+# Redux Blog Application
 
 ***Project Goals***
 
@@ -12,7 +12,8 @@
 
 ***February 28, 2017***
 
-###Exploring the API
+### Exploring the API
+
 Sec. 6, Lec. 70
 
 Server API located at [reduxblog.herokuapp.com](http://reduxblog.herokuapp.com).
@@ -44,7 +45,8 @@ NOTE:
 
 ***March 1, 2017***
 
-###Installing React Router
+### Installing React Router
+
 Sec. 6, Lec. 71
 
 Will install a specific version of react-router to ensure we're using the same API:
@@ -52,7 +54,8 @@ Will install a specific version of react-router to ensure we're using the same A
     $ npm install --save react-router@2.0.0-rc5
 
 
-###Setting Up React Router
+### Setting Up React Router
+
 Sec. 6, Lec. 73
 
 *   React Router is an object that decides what components to display on the screen based on the URL
@@ -90,23 +93,28 @@ Sec. 6, Lec. 73
 
 ***March 3, 2017***
 
-###Nested Components
+### Nested Components
+
 Sec. 6, Lec. 75
 
 The Greeting components below are children of the App component:
 
-    <Route path = "/" component = { App } >
-        <Route path = "greet1" component = { Greeting } />
-        <Route path = "greet2" component = { Greeting } />
-        <Route path = "greet3" component = { Greeting } />
-    </Route>
+```
+        <Route path = "/" component = { App } >
+            <Route path = "greet1" component = { Greeting } />
+            <Route path = "greet2" component = { Greeting } />
+            <Route path = "greet3" component = { Greeting } />
+        </Route>
+```
 
 To render the children, add the following line in the App component's render() method:
 
-     return (
-       <div>
-        { this.props.children }
-       </div>
+```     
+        return (
+           <div>
+            { this.props.children }
+           </div>
+```
 
 Conclusion:
 
@@ -125,9 +133,10 @@ IndexRoute from React Router
 
 ---
 
-####March 4, 2017
+***March 4, 2017***
 
-###Create Index Action
+### Create Index Action
+
 Sec. 6, Lec. 77
 
 Process:
@@ -183,21 +192,18 @@ Process:
 
         post: null  => the active blog post
 
-8.  
-
-        
-
 React Router
 
     The user thinks they are changing pages, but they aren't.  Actually, React Router is only changing the components that are viewed on a single page.
 
 
-###Fetching Data with Lifecycle Methods
+### Fetching Data with Lifecycle Methods
+
 Sec. 6, Lec. 80
 
 We need to fetch data whenever URL changes.
 
-__Lifecycle Method__
+___Lifecycle Method___
 
     Function on a React component class that is automatically called by React
 
@@ -205,7 +211,7 @@ __Lifecycle Method__
     1.  componentWillMount()
     2.  componentDidMount()
 
-__Process__
+___Process___
 
 1.  Change posts_index.js from a functional component to a class-based component.
 
@@ -217,7 +223,7 @@ __Process__
 
 3.  Whenever our PostsIndex component is about to mount, React will fetch the  posts data.
 
-__Creating Containers that Call Action Creators__
+___Creating Containers that Call Action Creators___
 
 1.  Import connect:
     ```
@@ -241,12 +247,13 @@ __Creating Containers that Call Action Creators__
         export default connect(null, mapDispatchToProps)(PostsIndex);
     ```
 
-###Creating New Posts
+### Creating New Posts
+
 Sec. 6, Lec. 82
 
-Goal: build a component with a form input linked to the route '/posts/new' that allows a user to add a title, categories, and content.
+___Goal:___  Build a component with a form input linked to the route '/posts/new' that allows a user to add a title, categories, and content.
 
-__Process__
+___Process___
 
 1.      Scaffold component to show form
     
@@ -261,9 +268,12 @@ __Process__
 
 5.      Create action creator and update reducer.
 
-####March 16, 2017
+---
 
-###Navigation with the Link Component
+___March 16, 2017___
+
+### Navigation with the Link Component
+
 Sec. 6, Lec. 83
 
 Goal:   Complete Step 3
@@ -294,12 +304,11 @@ when it does, it behaves like an anchor (<a>) tag.
     </div>
     
 
+### Forms and Form Submission
 
-###Forms and Form Submission
 Sec. 6, Lec. 84
 
-Goal:   Complete Step 4
-Build form for '/posts/new'
+___Goal:___   Complete Step 4 -- build form for '/posts/new'
 
 Will implement form validation for inputs:
 - text for all fields
@@ -315,10 +324,12 @@ Will implement form validation for inputs:
 
         import { reducer as formReducer } from 'redux-form'
 
+---
 
-####Saturday, March 18, 2017
+___March 18, 2017___
 
-###Passing Control to Redux Form
+### Passing Control to Redux Form
+
 Sec. 6, Lec. 86
 
 - With the reduxForm helper function, we created a new form called PostsNewForm with three fields: title, categories, and content
@@ -328,7 +339,8 @@ Sec. 6, Lec. 86
 - reduxForm() injects helpers onto this.props that can then be used inside the PostsNew component
 
 
-###CreatePost Action Creator###
+### CreatePost Action Creator
+
 Sec. 6, Lec. 87
 
 - In components/posts_new.js, the handleSubmit() function needs an action creator before we can call it with the final form properties (title, categories, content).
@@ -357,17 +369,15 @@ Sec. 6, Lec. 87
         export const CREATE_POST = "CREATE_POST";
         ````
 
-    3.
-
-
-
-
-###Abstracting Form State with Redux-Form
+### Abstracting Form State with Redux-Form
 
 Erik Rasmussen - 8/2/2016
+
 https://www.youtube.com/watch?v=eDTi7lYR1VU
 
 ___Recap (26:00)___
+
+#### History
 
 1.  HTML forms required all server rendering and processing
 
@@ -377,45 +387,39 @@ ___Recap (26:00)___
 
 4.  React introuced "controlled inputs" that transferrred control of data from the DOM to JavaScript
 
-React introduced Controlled Inputs
+#### React Introduced Controlled Inputs
 
-    What is a controlled input?
++   What is a controlled input?
 
-        An input that will __always__ render with the value it is
+    -   An input that will __always__ render with the value it is
         given as a prop.
 
-        <input type="text" value={username}/>
+            <input type="text" value={username}/>
 
-        So no matter what you try and type into this input, it will
+    -   So no matter what you try and type into this input, it will
         always render the username as the value.
 
-    Why is this important?
++   Why is this important?
 
-        It takes control away from the DOM.
+    -   It takes control away from the DOM.  JavaScript controls the data, not the DOM.
 
-        JavaScript controls the data, not the DOM.
+    -   Now only on canonical source of data.
 
-        Now only on canonical source of data.
+    -   Developer now responsible for mutating the form state and re-rendering the input.
 
-        As the developer, I'm responsible for mutating the form
-        state and re-rendering the input.
+    -   React requires a lot of state and updating boilerplate.  So Redux provides a more efficient solution.
 
-        React requires a lot of state and updating boilerplate.
-
-####Redux (17:00)####
+### Redux (17:00)
 
 ___What is Redux?___
 
-    -   All application state kept in a single store {}
-    -   State is read-only
-    -   Update state by dispatching Actions
-    -   Actions are plain JavaScript objects
-            With properties of type and data
-    -   State mutated functionally by Reducers
-            A Reducer is a function that takes the current
-            state, takes the action, and returns the next state
-    -   Subscribers notified of changes only to their specific
-        slice of state
++   All application state kept in a single store {}
++   State is read-only
++   Update state by dispatching Actions
++   Actions are plain JavaScript objects with properties of type and data
++   State mutated functionally by Reducers
++   A Reducer is a function that takes the current state, takes the action, and returns the next state
++   Subscribers notified of changes only to their specific slice of state
 
 ___Why Redux Form?___
 
@@ -495,8 +499,9 @@ ___Simplest Redux Form___
     
     -   creates a higher-order component, provides it props
 
+---
 
-## Tuesday, April 4, 2017
+___April 4, 2017___
 
 ### Navigating on Blog Post Submit
 
@@ -583,7 +588,6 @@ ___Process___
                 );
             });
         }
-
 ```
 
 
