@@ -548,11 +548,43 @@ ___Goal:___ Map state to props in posts_index.js and render all blog posts.
 
 ___Process___
 
-1.  
+1.  Define mapStateToProps function with posts as a property:
 
+```
+        function mapStateToProps(state) {
+            return { posts: state.posts.all };
+        }
+```
 
+2.  Add mapStateToProps to the Redux connect() method:
 
+```
+        export default connect(mapStateToProps, { fetchPosts })(PostsIndex);
+```
 
+3.  Create unordered list in render() method:
+
+```
+        <ul className="list-group">
+            { this.renderPosts() }
+        </ul>
+```
+
+4.  Define renderPosts() method to map and render each blog post:
+
+```
+        renderPosts() {
+            return this.props.posts.map(post => {
+                return (
+                    <li className="list-group-item" key={post.id}>
+                        <span className="pull-xs-right">{post.categories}</span>
+                        <strong>{post.title}</strong>
+                    </li>
+                );
+            });
+        }
+
+```
 
 
 
