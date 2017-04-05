@@ -539,9 +539,22 @@ ___Process___
 
     +    `<Router>` provides the context
 
-4.    
 
-    
+### Mapping Posts in Index
+
+Sec. 6, Lec. 91
+
+___Goal:___ Map state to props in posts_index.js and render all blog posts.
+
+___Process___
+
+1.  
+
+
+
+
+
+
 
 
 
