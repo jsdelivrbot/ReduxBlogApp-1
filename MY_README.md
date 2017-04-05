@@ -613,11 +613,12 @@ ___Wrapup___
     +    Determines what components to render on the screen at any given time.
     +    Uses '/' as the index URL and references all other routes from there:
     
+```
             <Route path = "/" component = { App } >
                 <IndexRoute component = { PostsIndex } />
                 <Route path = "posts/new" component = { PostsNew } />
                 <Route path = "posts/:id" component = { PostsShow } />
             </Route>
-    
-    +    `<IndexRoute />` always returns to the index component page.
+```
 
+    +    `<IndexRoute />` always returns to the index component page.
