@@ -67,8 +67,8 @@ class PostsNew extends Component {
 
 		return (
 			<form onSubmit = { handleSubmit(this.onSubmit) }>
-				<div className = "blog-post-header">
-					<h3>Create a New Blog Post</h3>
+				<div className = "new-post-header">
+					<h3>Create a New Post</h3>
 				</div>
 				<Field
 					name= "title"

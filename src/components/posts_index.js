@@ -6,6 +6,13 @@ import { fetchPosts } from '../actions/index';
 
 import { Link } from 'react-router';
 
+import {
+	Col,
+	Grid,
+	Row
+} from 'react-bootstrap';
+
+
 class PostsIndex extends Component {
 
 	// React will call this component automatically when it is about to be
@@ -13,7 +20,6 @@ class PostsIndex extends Component {
 	// on subsequent re-renders.
 	componentDidMount() {
 
-		// console.log('Great place to call an action creator to fetch posts');
 		this.props.fetchPosts();
 	}
 
@@ -35,12 +41,22 @@ class PostsIndex extends Component {
 	render() {
 		return (
 			<div>
-				<div className="text-xs-right">
+				<div className="text-xs-right index-button">
 					<Link to="/posts/new" className="btn btn-primary">
 						Add a Post
 					</Link>
 				</div>
-				<h3>Posts</h3>
+				<div className="posts-title">
+					<h3>Posts</h3>
+				</div>
+				<Grid>
+					<Row className="posts-index-headers">
+						<Col className="posts-title-header"
+							 xs={12} md={6}>{'Title'}</Col>
+						<Col className="posts-categories-header"
+						     xs={6}  md={6}>{'Categories'}</Col>
+					</Row>
+				</Grid>
 				<ul className="list-group">
 					{ this.renderPosts() }
 				</ul>
