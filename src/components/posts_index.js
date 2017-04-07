@@ -26,15 +26,18 @@ class PostsIndex extends Component {
 	renderPosts() {
 
 		return this.props.posts.map(post => {
-			return (
-				// need to add a key when render list in React
-				<li className="list-group-item" key={post.id}>
-					<span className="pull-xs-right">{post.categories}</span>
-					<Link to={'posts/' + post.id }>
-						<strong>{post.title}</strong>
-					</Link>
-				</li>
-			);
+			// only render posts that have a title and categories
+			if(post.title && post.categories) {
+				return (
+					// need to add a key when render list in React
+					<li className="list-group-item" key={post.id}>
+						<span className="pull-xs-right">{post.categories}</span>
+						<Link to={'posts/' + post.id }>
+							<strong>{post.title}</strong>
+						</Link>
+					</li>
+				);
+			}
 		});
 	}
 

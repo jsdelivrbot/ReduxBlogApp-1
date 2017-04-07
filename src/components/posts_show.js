@@ -37,20 +37,22 @@ class PostsShow extends Component {
 		return (
 			<div>
 				<div>
-					<h3>{post.title}</h3>
+					<div className= "posts-content-title">
+						<h3>{post.title}</h3>
+					</div>
 					<h6>Categories: {post.categories}</h6>
 					<p>{post.content}</p>
 				</div>
 				<div className="col-sm-2 form-buttons">
 					<Link 
 						to= "/"
-						className="btn btn-primary">
+						className="btn btn-primary btn-block">
 						Back to Index
 					</Link>
 				</div>
 				<div className="col-sm-2 form-buttons">
 					<button 
-						className="btn btn-danger"
+						className="btn btn-danger btn-block"
 						onClick= { this.onDeleteClick }>
 						Delete Post
 					</button>

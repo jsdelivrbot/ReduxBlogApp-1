@@ -53,3 +53,9 @@
 .posts-categories-header {
   text-align: right;
 }
+
+.posts-content-title {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  border-bottom: 3px solid #3498db;
+}

@@ -623,7 +623,7 @@ ___Wrapup___
 
 
 -   `<IndexRoute />` always returns to the index component page.
--   browserHistory  use entire URL to determine route
+-   browserHistory uses entire URL to determine route
 
 
 ___April 6, 2017___
@@ -632,7 +632,9 @@ ___April 6, 2017___
 
 Sec. 7, Lec. 98
 
--   Redux works well for synchronous actions:
+___Overview___
+
+-   Redux works extremely well for synchronous actions:
 
 ```
     A user click triggers an -> Action creator, that produces an -> 
@@ -641,5 +643,67 @@ Sec. 7, Lec. 98
 ```
 
 -  But Redux is not wired out of the box for async actions.
--  
+    +  How do we handle async action creators?
+    +  How do we make async requests?
+-  Purpose of Redux Thunk:
+    +  Give us direct control over the __dispatch__ method
+    +  Dispatch is part of the Redux store
+    +  Dispatch handles Middleware, Reducers, and State.
+-  Dispatch is like a funnel
+    +  An action creator returns an Action
+    +  The Action is passed through the dispatch funnel
+    +  Dispatch ensures the Action is sent to all the reducers
+-  Action -> Dispatch -> Reducers (with new State)
+
+___Process___
+
+-  Redux Thunk rewrites the conventions for Action creators.  A regular Action creator returns an Action, which is a plain JavaScript object.
+-  Redux Thunk allows the Action creator to return a function:
+
+```
+    export function fetchPosts() {
+        const request = axios.get('http://jsonplaceholder.typicode.com/users')
+
+        return (dispatch) => {
+    
+        };
+    }
+```
+
+-  The function parameter is dispatch.  If pass an action into dispatch, the action will be sent off to all of the reducers.
+-  Will wait for request to resolve with data, and only when the request is resolved (.then) will an Action be dispatched:
+
+```
+    export function fetchPosts() {
+        const request = axios.get('http://jsonplaceholder.typicode.com/users')
+
+        return (dispatch) => {
+            request.then(({data}) => {
+                dispatch({ 
+                    type: 'FETCH_PROFILES',
+                    payload: data
+                })
+            });
+        };
+    }
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
