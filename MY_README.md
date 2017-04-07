@@ -622,15 +622,17 @@ ___Wrapup___
 ```
 
 
--   <IndexRoute /> always returns to the index component page.
+-   `<IndexRoute />` always returns to the index component page.
 -   browserHistory  use entire URL to determine route
 
+
+___April 6, 2017___
 
 ### Redux Thunk
 
 Sec. 7, Lec. 98
 
--   Redux works well for synchronous actions
+-   Redux works well for synchronous actions:
 
 ```
     A user click triggers an -> Action creator, that produces an -> 
@@ -638,5 +640,6 @@ Sec. 7, Lec. 98
     Reducers, that produce -> State, that flows into -> React
 ```
 
-
+-  But Redux is not wired out of the box for async actions.
+-  
 
