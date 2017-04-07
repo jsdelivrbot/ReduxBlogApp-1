@@ -636,3 +636,7 @@ Sec. 7, Lec. 98
     A user click triggers an -> Action creator, that produces an -> 
     Action, that flows into -> Middleware, that passes the action to -> 
     Reducers, that produce -> State, that flows into -> React
+```
+
+
+
