@@ -21,5 +21,4 @@ function mapStateToProps(state) {
 	return { post: state.posts.post };
 }
 
-export default connect(mapStateToProps, { updatePost })(PostsUpdate);
-// export default PostsUpdate;
+export default connect(mapStateToProps, null)(PostsUpdate);

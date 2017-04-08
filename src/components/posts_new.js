@@ -2,6 +2,9 @@ import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 
 import {
+	Button,
+	ButtonGroup,
+	ButtonToolbar,
 	Col,
 	ControlLabel,
 	FormControl,
@@ -94,18 +97,19 @@ class PostsNew extends Component {
 					props= {{ componentClass: 'textarea', label:'Content' }}
 					placeholder= "Your thoughts matter">
 				</Field>
-				<Col sm={3}>
-					<input
-						type="submit"
-						className="btn btn-primary"
-					/>
-				</Col>
-				<Col sm={3}>
-					<Link 
-						to= "/"
-						className="btn btn-danger">Cancel
-					</Link>
-				</Col>
+				<ButtonToolbar>
+					<Button type="submit"
+							bsStyle="primary" 
+					        bsSize="medium">Submit
+			        </Button>
+			        <Button bsStyle="danger"
+			        		bsSize="medium">
+		        		<Link to= "/"
+		        			  style={{color: 'white', 'text-decoration':'none'}}
+		        			>Cancel
+	        			</Link>
+        			</Button>
+				</ButtonToolbar>
 			</form>
 		);
 	}

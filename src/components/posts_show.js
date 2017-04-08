@@ -27,7 +27,7 @@ class PostsShow extends Component {
 
 	onUpdateClick = () => {
 
-		this.props.updatePost(this.props.post);
+		//this.props.updatePost(this.props.post);
 
 		let id = this.props.post.id;		
 		this.context.router.push(`${id}/update`);
