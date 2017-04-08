@@ -23,6 +23,14 @@ class PostsShow extends Component {
 		  .then(() => { this.context.router.push('/') });
 	}
 
+	onUpdateClick = () => {
+
+		console.log('onUpdateClick props =', this.props.post);
+		this.context.router.push('/posts/new')
+	}
+
+
+
 	render() {
 
 		const { post } = this.props;
@@ -55,6 +63,13 @@ class PostsShow extends Component {
 						className="btn btn-danger btn-block"
 						onClick= { this.onDeleteClick }>
 						Delete Post
+					</button>
+				</div>
+				<div className="col-sm-2 form-buttons">
+					<button 
+						className="btn btn-info btn-block"
+						onClick= { this.onUpdateClick }>
+						Update Post
 					</button>
 				</div>
 			</div>

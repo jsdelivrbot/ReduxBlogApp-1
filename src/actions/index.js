@@ -55,7 +55,7 @@ export function fetchPost(id) {
 	};
 }
 
-// action creator functions that deletes a blog post based on the
+// action creator function that deletes a blog post based on the
 // specified id.
 export function deletePost(id) {
 
@@ -69,7 +69,7 @@ export function deletePost(id) {
 	};
 }
 
-
+// action creator 
 
 
 

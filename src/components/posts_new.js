@@ -2,6 +2,7 @@ import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 
 import {
+	Col,
 	ControlLabel,
 	FormControl,
 	FormGroup
@@ -91,18 +92,18 @@ class PostsNew extends Component {
 					props= {{ componentClass: 'textarea', label:'Content' }}
 					placeholder= "Your thoughts matter">
 				</Field>
-				<div className="col-sm-2 form-buttons">
+				<Col sm={2} md={4}>
 					<input
 						type="submit"
 						className="btn btn-primary"
 					/>
-				</div>
-				<div className="col-sm-2 form-buttons">
+				</Col>
+				<Col sm={2} md={4}>
 					<Link 
 						to= "/"
 						className="btn btn-danger">Cancel
 					</Link>
-				</div>
+				</Col>
 			</form>
 		);
 	}
