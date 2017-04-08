@@ -1,18 +1,25 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { updatePost } from '../actions/index';
 
 class PostsUpdate extends Component {
 
 	render() {
 
-		console.log('posts_update props = ', this.props);
+		const { post } = this.props;
+
+		console.log('posts_update props = ', post);
 
 		return (
-			<h3>Inside PostsUpdate</h3>
+			<h3>Inside Posts Update</h3>
 		);
 	}
-
-
-
 }
 
-export default connect(null, null)(PostsUpdate);
+
+function mapStateToProps(state) {
+	return { post: state.posts.post };
+}
+
+export default connect(mapStateToProps, { updatePost })(PostsUpdate);
+// export default PostsUpdate;

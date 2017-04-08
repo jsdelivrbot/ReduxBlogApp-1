@@ -12,6 +12,7 @@ export const FETCH_POSTS = "FETCH_POSTS";
 export const CREATE_POST = "CREATE_POST";
 export const FETCH_POST = "FETCH_POST";
 export const DELETE_POST = "DELETE_POST";
+export const UPDATE_POST = "UPDATE_POST";
 
 // action creator function that returns an object with all posts
 export function fetchPosts() {
@@ -69,7 +70,16 @@ export function deletePost(id) {
 	};
 }
 
-// action creator 
+// action creator funtion that updates a blog post
+export function updatePost(props) {
+
+	console.log('updatePost props =', props);
+
+	return {
+		type: UPDATE_POST,
+		payload: props
+	}
+}
 
 
 

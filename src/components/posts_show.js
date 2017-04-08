@@ -1,7 +1,9 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router';
-import { fetchPost, deletePost } from '../actions/index';
+import { fetchPost, deletePost, updatePost } from '../actions/index';
+
+import PostsUpdate from './posts_update';
 
 class PostsShow extends Component {
 
@@ -25,11 +27,12 @@ class PostsShow extends Component {
 
 	onUpdateClick = () => {
 
-		console.log('onUpdateClick props =', this.props.post);
-		this.context.router.push('/posts/new')
+		this.props.updatePost(this.props.post);
+
+		let id = this.props.post.id;		
+		this.context.router.push(`${id}/update`);
+
 	}
-
-
 
 	render() {
 
@@ -81,4 +84,4 @@ function mapStateToProps(state) {
 	return { post: state.posts.post }
 }
 
-export default connect(mapStateToProps, { fetchPost, deletePost })(PostsShow);
+export default connect(mapStateToProps, { fetchPost, deletePost, updatePost })(PostsShow);

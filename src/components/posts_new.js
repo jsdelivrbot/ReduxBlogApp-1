@@ -13,7 +13,7 @@ import {
 import { reduxForm, Field } from 'redux-form';
 
 // action creator
-import { createPost } from '../actions/index';
+import { createPost, updatePost } from '../actions/index';
 
 // link Cancel button back to posts ('/')
 import { Link } from 'react-router';
@@ -66,6 +66,8 @@ class PostsNew extends Component {
 		// handleSubmit is a helper function provided by ReduxForm
 		const { handleSubmit } = this.props;
 
+		console.log('PostsNew props =', this.props);
+
 		return (
 			<form onSubmit = { handleSubmit(this.onSubmit) }>
 				<div className = "new-post-header">
@@ -92,13 +94,13 @@ class PostsNew extends Component {
 					props= {{ componentClass: 'textarea', label:'Content' }}
 					placeholder= "Your thoughts matter">
 				</Field>
-				<Col sm={2} md={4}>
+				<Col sm={3}>
 					<input
 						type="submit"
 						className="btn btn-primary"
 					/>
 				</Col>
-				<Col sm={2} md={4}>
+				<Col sm={3}>
 					<Link 
 						to= "/"
 						className="btn btn-danger">Cancel
