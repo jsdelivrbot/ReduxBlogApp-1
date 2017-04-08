@@ -3,6 +3,16 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router';
 import { fetchPost, deletePost, updatePost } from '../actions/index';
 
+import {
+	Button,
+	ButtonGroup,
+	ButtonToolbar,
+	Col,
+	ControlLabel,
+	FormControl,
+	FormGroup
+} from 'react-bootstrap';
+
 import PostsUpdate from './posts_update';
 
 class PostsShow extends Component {
@@ -54,27 +64,20 @@ class PostsShow extends Component {
 					<h6>Categories: {post.categories}</h6>
 					<p>{post.content}</p>
 				</div>
-				<div className="col-sm-2 form-buttons">
-					<Link 
-						to= "/"
-						className="btn btn-primary btn-block">
-						Back to Index
-					</Link>
-				</div>
-				<div className="col-sm-2 form-buttons">
-					<button 
-						className="btn btn-danger btn-block"
-						onClick= { this.onDeleteClick }>
-						Delete Post
-					</button>
-				</div>
-				<div className="col-sm-2 form-buttons">
-					<button 
-						className="btn btn-info btn-block"
-						onClick= { this.onUpdateClick }>
-						Update Post
-					</button>
-				</div>
+				<ButtonToolbar>
+					<Button type="submit"
+							bsStyle="primary">
+				        <Link to= "/"
+				        	  style={{ color: 'white', 'textDecoration':'none' }}>All Posts
+			        	</Link>
+			        </Button>
+			        <Button bsStyle="danger"
+		        			onClick= { this.onDeleteClick }>Delete Post
+        			</Button>
+			        <Button bsStyle="info"
+		        			onClick= { this.onUpdateClick }>Update Post
+        			</Button>
+				</ButtonToolbar>
 			</div>
 		);
 	}

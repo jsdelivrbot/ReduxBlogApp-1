@@ -69,7 +69,7 @@ class PostsNew extends Component {
 		// handleSubmit is a helper function provided by ReduxForm
 		const { handleSubmit } = this.props;
 
-		console.log('PostsNew props =', this.props);
+		// console.log('PostsNew props =', this.props);
 
 		return (
 			<form onSubmit = { handleSubmit(this.onSubmit) }>
@@ -99,14 +99,11 @@ class PostsNew extends Component {
 				</Field>
 				<ButtonToolbar>
 					<Button type="submit"
-							bsStyle="primary" 
-					        bsSize="medium">Submit
+							bsStyle="primary">Submit
 			        </Button>
-			        <Button bsStyle="danger"
-			        		bsSize="medium">
+			        <Button bsStyle="danger">
 		        		<Link to= "/"
-		        			  style={{color: 'white', 'text-decoration':'none'}}
-		        			>Cancel
+		        			  style={{color: 'white', 'textDecoration':'none'}}>Cancel
 	        			</Link>
         			</Button>
 				</ButtonToolbar>
