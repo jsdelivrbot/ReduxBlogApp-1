@@ -5,12 +5,7 @@ import { fetchPost, deletePost, updatePost } from '../actions/index';
 
 import {
 	Button,
-	ButtonGroup,
 	ButtonToolbar,
-	Col,
-	ControlLabel,
-	FormControl,
-	FormGroup
 } from 'react-bootstrap';
 
 import PostsUpdate from './posts_update';
@@ -37,8 +32,6 @@ class PostsShow extends Component {
 
 	onUpdateClick = () => {
 
-		//this.props.updatePost(this.props.post);
-
 		let id = this.props.post.id;		
 		this.context.router.push(`${id}/update`);
 
@@ -51,7 +44,7 @@ class PostsShow extends Component {
 		// if no post data yet, show spinner
 		if(!post) {
 			return (
-				<div className= "loader"></div>
+				<div className="loader"></div>
 			);
 		}
 
@@ -65,16 +58,18 @@ class PostsShow extends Component {
 					<p>{post.content}</p>
 				</div>
 				<ButtonToolbar>
-					<Button type="submit"
-							bsStyle="primary">
+					<Button bsStyle="primary"
+							maxWidth='150'>
 				        <Link to= "/"
-				        	  style={{ color: 'white', 'textDecoration':'none' }}>All Posts
+				        	  style={{ color: 'white', 'textDecoration':'none' }}>Show Posts
 			        	</Link>
 			        </Button>
 			        <Button bsStyle="danger"
+			        		maxWidth='150'
 		        			onClick= { this.onDeleteClick }>Delete Post
         			</Button>
 			        <Button bsStyle="info"
+			        		maxWidth='150'
 		        			onClick= { this.onUpdateClick }>Update Post
         			</Button>
 				</ButtonToolbar>
