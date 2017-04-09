@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
-import { createPost } from '../actions/index';
+import { createPost, deletePost, fetchPosts } from '../actions/index';
 import { reduxForm, Field } from 'redux-form';
 import { Link } from 'react-router';
 
@@ -17,9 +17,6 @@ import {
 // function to render each field
 const renderField = ({ type, input, meta: { touched, error }, 
 						placeholder, componentClass, label }) => {
-
-	console.log('input =', input);
-
 	return(
 		<div>
 			<FormGroup
@@ -51,13 +48,46 @@ class PostsUpdate extends Component {
 	};
 
 	onSubmit = (props) => {
-		this.props.createPost(props)
-		  .then(() => { this.context.router.push('/') });
+
+		console.log('onSubmit props=', props)
+
+		const updateData = {
+			title: props.title,
+			categories: props.categories,
+			content: props.content
+		}
+
+		// console.log('updateData = ', updateData);
+
+		this.props.createPost(updateData)
+			.then(() => { 
+				this.props.deletePost(props.id)
+			});
+
+			/*
+			.then(() => {
+				this.context.router.push('/');
+			})
+			*/
+
+		/* WORKS! but doesn't return you to index ('/')??
+		this.props.createPost(updateData)
+			.then(() => { 
+				this.props.deletePost(props.id)
+			});
+		*/
+
+
+		//this.context.router.push('/');
 	}
 
+
+	// component re-renders on any change in the form fields
 	render() {
 
-		const { handleSubmit } = this.props;
+		const { handleSubmit, initialValues } = this.props;
+
+		console.log('PostsUpdate initialValues =', initialValues);
 
 		return (
 			<form onSubmit = { handleSubmit(this.onSubmit) }>
@@ -134,8 +164,8 @@ function mapStateToProps(state) {
 }
 
 PostsUpdate = reduxForm({
-	form:'PostsNewForm',
+	form:'PostsUpdateForm',
 	validate
 })(PostsUpdate);
 
-export default connect(mapStateToProps, { createPost })(PostsUpdate);
+export default connect(mapStateToProps, { createPost, deletePost, fetchPosts })(PostsUpdate);

@@ -23,6 +23,13 @@ class PostsIndex extends Component {
 		this.props.fetchPosts();
 	}
 
+	/*
+	componentWillUpdate() {
+
+		this.props.fetchPosts();
+	}
+	*/
+
 	renderPosts() {
 
 		return this.props.posts.map(post => {
