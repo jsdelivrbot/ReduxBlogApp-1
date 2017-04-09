@@ -15,20 +15,13 @@ import {
 
 class PostsIndex extends Component {
 
-	// React will call this component automatically when it is about to be
+	// React will automatically call componentDidMount() when it is about to be
 	// rendered to the DOM.  But it will only be called the first time, not
 	// on subsequent re-renders.
 	componentDidMount() {
 
 		this.props.fetchPosts();
 	}
-
-	/*
-	componentWillUpdate() {
-
-		this.props.fetchPosts();
-	}
-	*/
 
 	renderPosts() {
 
@@ -62,7 +55,7 @@ class PostsIndex extends Component {
 				<Grid>
 					<Row className="posts-index-headers">
 						<Col className="posts-title-header"
-							 xs={12} md={6}>{'Title'}</Col>
+							 xs={6} md={6}>{'Title'}</Col>
 						<Col className="posts-categories-header"
 						     xs={6}  md={6}>{'Categories'}</Col>
 					</Row>

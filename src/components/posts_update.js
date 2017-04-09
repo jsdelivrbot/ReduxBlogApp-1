@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
-import { createPost, deletePost, fetchPosts } from '../actions/index';
+import { createPost, deletePost } from '../actions/index';
 import { reduxForm, Field } from 'redux-form';
 import { Link } from 'react-router';
 
@@ -8,7 +8,6 @@ import {
 	Button,
 	ButtonGroup,
 	ButtonToolbar,
-	Col,
 	ControlLabel,
 	FormControl,
 	FormGroup
@@ -57,37 +56,47 @@ class PostsUpdate extends Component {
 			content: props.content
 		}
 
-		// console.log('updateData = ', updateData);
+		/*
+		Heroku likely employs HTTP request limits.  Sometimes after createPost,
+		deletePost, and then attempting to route to the index ('/'), I will
+		receive HTTP Error 429 (too many requests).
 
-		this.props.createPost(updateData)
-			.then(() => { 
-				this.props.deletePost(props.id)
-			});
+		If this error occurs, the createPost and deletePost requests 
+		will both have excecuted successfully.  But the GET request (fetchPosts) 
+		associated with routing to the index page does not execute, and
+		the index page does not automatically reload with the updated post. 
 
-			/*
-			.then(() => {
-				this.context.router.push('/');
-			})
-			*/
+		I attempted to resolve this error by adding a setTimeout function to
+		delay the routing.  Five seconds seems sufficient for most updates, but  
+		it is not perfect.
 
-		/* WORKS! but doesn't return you to index ('/')??
-		this.props.createPost(updateData)
-			.then(() => { 
-				this.props.deletePost(props.id)
-			});
+		If the index page is not refreshed automatically, a hard refresh will
+		show the updated post.  The deleted post will not appear.
+
 		*/
 
-
-		//this.context.router.push('/');
+		this.props.createPost(updateData)
+			.then(() => { 
+				this.props.deletePost(props.id)
+					.then(() => {
+						setTimeout(this.context.router.push('/'), 5000);
+					})
+					.catch(err => {
+						console.log('ERROR:', err);
+					})
+					.then(() => {
+						this.context.router.push('/');
+					})
+			});
 	}
 
 
-	// component re-renders on any change in the form fields
+	// Component re-renders on any change in the form fields
 	render() {
 
 		const { handleSubmit, initialValues } = this.props;
 
-		console.log('PostsUpdate initialValues =', initialValues);
+		// console.log('PostsUpdate initialValues =', initialValues);
 
 		return (
 			<form onSubmit = { handleSubmit(this.onSubmit) }>
@@ -168,4 +177,4 @@ PostsUpdate = reduxForm({
 	validate
 })(PostsUpdate);
 
-export default connect(mapStateToProps, { createPost, deletePost, fetchPosts })(PostsUpdate);
+export default connect(mapStateToProps, { createPost, deletePost })(PostsUpdate);
