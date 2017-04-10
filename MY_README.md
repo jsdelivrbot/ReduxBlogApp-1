@@ -689,6 +689,33 @@ ___Process___
 ```
 
 
+---
+
+___April 9, 2017___
+
+### Update Blog Post
+
+___Goal:___ Create a component that allows the user to update an existing blog post.
+
+___Process:___
+
+-  The posts_update component copies the posts_new component almost verbatim.
+-  After making any changes to the existing blog post, the user will then click the Submit button.
+-  Upon submit, the new post is saved and the old post is deleted.  The new post is then posted to the Heroku server.  Upon successful execution of these HTML requests, the user is redirected to the list of blog posts ('/').
+
+___Heroku HTTP Request Limits___
+
+Heroku likely employs HTTP request limits.  Sometimes after calling the action creators createPost and deletePost, and then attempting to route to the index ('/'), I will receive HTTP Error 429 (too many requests).
+
+If this error occurs, the createPost (POST) and deletePost (DELETE) requests will both have excecuted successfully.  But the fetchPosts request (GET) associated with routing to the index page does not execute, and the index page does not automatically reload with the updated post. 
+
+I attempted to resolve this error by adding a setTimeout function to delay the routing.  Five seconds seems sufficient for most updates, but it is not perfect.
+
+If the index page is not refreshed automatically, a hard refresh will show the updated post.  The deleted post will not appear.
+
+Further investigation may be required.
+
+---
 
 
 
