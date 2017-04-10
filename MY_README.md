@@ -717,6 +717,10 @@ Further investigation may be required.
 
 ---
 
+___Further Development___
+
+- [ ] button feature to alphabetize blog posts
+- [ ] button feature to alphabetize by categories
 
 
 
